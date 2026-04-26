@@ -381,6 +381,17 @@ a {
     letter-spacing: 0;
 }
 
+.ajudaTopico i {
+    color: #fff;
+    font-size: 10px;
+    line-height: 1;
+}
+
+.resumoCard .ajudaTopico {
+    color: #fff;
+    background: var(--ma-azul);
+}
+
 .ajudaTopico::after {
     content: attr(data-ajuda);
     position: absolute;
