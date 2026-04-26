@@ -290,6 +290,15 @@ a {
     overflow: visible;
 }
 
+.painelConsulta,
+.resumoCard,
+.atalhoConsulta,
+.grupoFiltros,
+.campoConsulta,
+.totaisResultado article {
+    overflow: visible;
+}
+
 .resumoCard::before {
     content: "";
     position: absolute;
@@ -485,7 +494,6 @@ a {
 
 .atalhoConsulta {
     position: relative;
-    overflow: hidden;
     min-height: 156px;
     padding: 22px;
     display: flex;
@@ -1058,6 +1066,15 @@ a {
 .totaisResultado h4 .ajudaTopico:focus::after,
 .totaisResultado h4 .ajudaTopico.is-active::after {
     transform: translate(-50%, 0);
+}
+
+.paginaConsultaCompacta .campoConsulta .ajudaTopico::after,
+.paginaConsultaCompacta .campoConsulta .ajudaTopico::before,
+.paginaConsultaCompacta .atalhoConsulta .ajudaTopico::after,
+.paginaConsultaCompacta .atalhoConsulta .ajudaTopico::before,
+.paginaConsultaCompacta .resumoCard .ajudaTopico::after,
+.paginaConsultaCompacta .resumoCard .ajudaTopico::before {
+    z-index: 30;
 }
 
 .totaisResultado strong {
