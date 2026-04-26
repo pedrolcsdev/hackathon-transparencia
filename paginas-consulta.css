@@ -1431,4 +1431,38 @@ a {
     .acoesPesquisa {
         grid-template-columns: 1fr;
     }
+
+    .paginaConsultaCompacta .ajudaTopico::after,
+    .paginaConsultaCompacta .campoConsulta .ajudaTopico::after,
+    .paginaConsultaCompacta .atalhoConsulta .ajudaTopico::after,
+    .paginaConsultaCompacta .resumoCard .ajudaTopico::after,
+    .paginaConsultaCompacta .totaisResultado h4 .ajudaTopico::after {
+        position: fixed;
+        left: 16px;
+        right: 16px;
+        top: calc(env(safe-area-inset-top, 0px) + 92px);
+        bottom: auto;
+        width: auto;
+        max-width: none;
+        box-sizing: border-box;
+        transform: none;
+        z-index: 2000;
+    }
+
+    .paginaConsultaCompacta .ajudaTopico::before,
+    .paginaConsultaCompacta .campoConsulta .ajudaTopico::before,
+    .paginaConsultaCompacta .atalhoConsulta .ajudaTopico::before,
+    .paginaConsultaCompacta .resumoCard .ajudaTopico::before,
+    .paginaConsultaCompacta .totaisResultado h4 .ajudaTopico::before {
+        display: none;
+    }
+
+    .paginaConsultaCompacta .ajudaTopico:hover::after,
+    .paginaConsultaCompacta .ajudaTopico:focus::after,
+    .paginaConsultaCompacta .ajudaTopico.is-active::after,
+    .paginaConsultaCompacta .totaisResultado h4 .ajudaTopico:hover::after,
+    .paginaConsultaCompacta .totaisResultado h4 .ajudaTopico:focus::after,
+    .paginaConsultaCompacta .totaisResultado h4 .ajudaTopico.is-active::after {
+        transform: none;
+    }
 }
