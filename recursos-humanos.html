@@ -41,13 +41,6 @@
             <p>Para consultar a remuneração de servidores, selecione os filtros.</p>
         </section>
 
-        <section class="resumoGrid" aria-label="Resumo de servidores públicos">
-            <article class="resumoCard"><span>Servidores <span class="ajudaTopico" tabindex="0" aria-label="O que são servidores?" data-ajuda="Pessoas que trabalham para o governo estadual."><i class="fa-solid fa-question"></i></span></span><strong>94.512</strong></article>
-            <article class="resumoCard"><span>Órgãos <span class="ajudaTopico" tabindex="0" aria-label="O que são órgãos?" data-ajuda="Secretarias, fundações e outras unidades do governo."><i class="fa-solid fa-question"></i></span></span><strong>131</strong></article>
-            <article class="resumoCard"><span>Cargos <span class="ajudaTopico" tabindex="0" aria-label="O que são cargos?" data-ajuda="Funções ou posições ocupadas pelos servidores."><i class="fa-solid fa-question"></i></span></span><strong>1.284</strong></article>
-            <article class="resumoCard"><span>Diárias <span class="ajudaTopico" tabindex="0" aria-label="O que são diárias?" data-ajuda="Valores pagos em viagens de trabalho, como alimentação e hospedagem."><i class="fa-solid fa-question"></i></span></span><strong>8.430</strong></article>
-        </section>
-
         <section class="painelConsulta">
             <div class="secaoTitulo">
                 <div><h2>Buscar remuneração</h2><p>Use a busca básica para consultas rápidas ou ligue a busca avançada para abrir todos os filtros.</p></div>
@@ -96,10 +89,46 @@
                     <button class="botaoLimpar" type="reset">Limpar pesquisa</button>
                 </div>
             </form>
-            <div class="dadosGrid" hidden>
-                <div class="linhaTabela"><strong>Analista executivo</strong><span>Secretaria de Estado da Gestão</span><span class="statusConsulta">Efetivo</span></div>
-                <div class="linhaTabela"><strong>Professor</strong><span>Secretaria de Educação</span><span class="statusConsulta">Ativo</span></div>
-                <div class="linhaTabela"><strong>Enfermeiro</strong><span>Secretaria de Saúde</span><span class="statusConsulta">Ativo</span></div>
+            <div class="dadosGrid resultadoPesquisa resultadoRemuneracao" hidden>
+                <div class="resultadoCabecalho">
+                    <h3>Resultado da pesquisa</h3>
+                    <strong>Filtros utilizados</strong>
+                    <p>Por Unidade: STC</p>
+                </div>
+                <div class="barraTabelaResultado">
+                    <div class="controlesTabela">
+                        <label>Exibir <select><option>10</option><option>25</option><option>50</option></select></label>
+                        <label>Ordenar <select><option>Nome</option><option>Cargo</option><option>Órgão</option></select></label>
+                        <label>Ordem <select><option>Crescente</option><option>Decrescente</option></select></label>
+                    </div>
+                    <div class="acoesTabela">
+                        <input type="search" placeholder="Busca resultados">
+                        <button type="button">Pesquisar</button>
+                        <button type="button">Dicionário de dados</button>
+                        <button type="button">XLS</button>
+                        <button type="button">CSV</button>
+                        <button type="button">PDF</button>
+                    </div>
+                </div>
+                <div class="tabelaResultadoWrap">
+                    <table class="tabelaResultado tabelaRemuneracao">
+                        <thead>
+                            <tr><th>Órgão</th><th>Nome</th><th>Matrícula</th><th>CPF</th><th>Cargo</th><th>Natureza do Cargo</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>SEC.EST.TRANSPARENCIA CONTROLE</td><td><a href="#">NOME</a></td><td>2***94-0</td><td>***.771.563 .**</td><td>SECRETARIO EXECUTIVO</td><td>COMISSIONADO</td></tr>
+                            <tr><td>SEC.EST.TRANSPARENCIA CONTROLE</td><td><a href="#">NOME</a></td><td>2***28-0</td><td>***.288.973 .**</td><td>ANALISTA EXECUTIVO</td><td>EFETIVO</td></tr>
+                            <tr><td>SEC.EST.TRANSPARENCIA CONTROLE</td><td><a href="#">NOME</a></td><td>8***80-0</td><td>***.648.273 .**</td><td>ASSESSOR DA OUVIDORIA</td><td>COMISSIONADO</td></tr>
+                            <tr><td>SEC.EST.TRANSPARENCIA CONTROLE</td><td><a href="#">NOME</a></td><td>2***22-1</td><td>***.856.263 .**</td><td>SECRETARIO EXECUTIVO</td><td>COMISSIONADO</td></tr>
+                            <tr><td>SEC.EST.TRANSPARENCIA CONTROLE</td><td><a href="#">NOME</a></td><td>8***87-0</td><td>***.773.533 .**</td><td>AUXILIAR TECNICO I</td><td>COMISSIONADO</td></tr>
+                            <tr><td>SEC.EST.TRANSPARENCIA CONTROLE</td><td><a href="#">NOME</a></td><td>8***02-0</td><td>***.388.938 .**</td><td>AUDITOR</td><td>EFETIVO</td></tr>
+                            <tr><td>SEC.EST.TRANSPARENCIA CONTROLE</td><td><a href="#">NOME</a></td><td>2***69-0</td><td>***.133.803 .**</td><td>AUDITOR</td><td>EFETIVO</td></tr>
+                            <tr><td>SEC.EST.TRANSPARENCIA CONTROLE</td><td><a href="#">NOME</a></td><td>2***13-0</td><td>***.954.723 .**</td><td>AUXILIAR TECNICO</td><td>COMISSIONADO</td></tr>
+                            <tr><td>SEC.EST.TRANSPARENCIA CONTROLE</td><td><a href="#">NOME</a></td><td>8***00-0</td><td>***.087.983 .**</td><td>ASSESSOR</td><td>COMISSIONADO</td></tr>
+                            <tr><td>SEC.EST.TRANSPARENCIA CONTROLE</td><td><a href="#">NOME</a></td><td>8***01-0</td><td>***.177.263 .**</td><td>AUXILIAR TECNICO</td><td>COMISSIONADO</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
 

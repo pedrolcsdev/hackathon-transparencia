@@ -41,13 +41,6 @@
             <p>Preencha os campos, seguindo a ordem e faça a pesquisa.</p>
         </section>
 
-        <section class="resumoGrid" aria-label="Resumo de contratos e licitações">
-            <article class="resumoCard"><span>Contratos em vigor <span class="ajudaTopico" tabindex="0" aria-label="O que são contratos em vigor?" data-ajuda="Contratos que ainda estão valendo ou em execução."><i class="fa-solid fa-question"></i></span></span><strong>12.847</strong></article>
-            <article class="resumoCard"><span>Licitações <span class="ajudaTopico" tabindex="0" aria-label="O que são licitações?" data-ajuda="Processos usados para escolher quem vai vender algo ao governo."><i class="fa-solid fa-question"></i></span></span><strong>3.216</strong></article>
-            <article class="resumoCard"><span>Fornecedores <span class="ajudaTopico" tabindex="0" aria-label="O que são fornecedores?" data-ajuda="Empresas ou pessoas que vendem produtos ou serviços ao governo."><i class="fa-solid fa-question"></i></span></span><strong>8.904</strong></article>
-            <article class="resumoCard"><span>Total contratado <span class="ajudaTopico" tabindex="0" aria-label="O que é total contratado?" data-ajuda="Valor total previsto nos contratos assinados."><i class="fa-solid fa-question"></i></span></span><strong>R$ 6,2 bi</strong></article>
-        </section>
-
         <section class="painelConsulta">
             <div class="secaoTitulo">
                 <div><h2>Buscar contratos</h2><p>Use a busca básica para consultas rápidas ou ligue a busca avançada para abrir todos os filtros.</p></div>
@@ -103,10 +96,50 @@
                     <button class="botaoLimpar" type="reset">Limpar pesquisa</button>
                 </div>
             </form>
-            <div class="dadosGrid" hidden>
-                <div class="linhaTabela"><strong>Contrato de manutenção de prédios</strong><span>Secretaria de Administração</span><span class="statusConsulta">Ativo</span></div>
-                <div class="linhaTabela"><strong>Compra de equipamentos</strong><span>Secretaria de Saúde</span><span class="statusConsulta">Em andamento</span></div>
-                <div class="linhaTabela"><strong>Serviços de transporte</strong><span>Secretaria de Educação</span><span class="statusConsulta">Publicado</span></div>
+            <div class="dadosGrid resultadoPesquisa resultadoContratos" hidden>
+                <div class="barraTabelaResultado barraContratos">
+                    <div></div>
+                    <div class="acoesTabela">
+                        <label>Buscar: <input type="search"></label>
+                        <button type="button">Dicionário de dados</button>
+                        <button type="button">XLS</button>
+                        <button type="button">CSV</button>
+                        <button type="button">PDF</button>
+                    </div>
+                </div>
+                <div class="tabelaResultadoWrap">
+                    <table class="tabelaResultado tabelaContratos">
+                        <thead>
+                            <tr><th>Contrato</th><th>Sigla</th><th>Dados da contratação</th><th>Vl Global</th><th>Inicio Vigência</th><th>Fim Vigência</th><th>Download</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Contrato/Ano:</strong><br>9912397464/2025</td>
+                                <td><strong>DETRAN</strong></td>
+                                <td><p><strong>Contratada:</strong> EMPRESA BRASILEIRA DE CORREIOS E TELEGRAFOS</p><p><strong>Tipo de Contratação:</strong> INEXIBILIDADE</p><p><strong>Objeto:</strong> A contratação de produtos e serviços por meio de Pacote de Serviços dos CORREIOS mediante adesão ao Termo de Condições Comerciais.</p><p><strong>Processo/Ano:</strong> 2025.110214.14292 /2025</p><p><strong>Contrato/Ano:</strong> 9912397464/2025</p><p><strong>Dt. Assinatura:</strong> 10/09/2025</p></td>
+                                <td><strong>3.500.000,00</strong></td><td><strong>10/09/2025</strong></td><td><strong>10/09/2026</strong></td><td><button type="button">Detalhar</button><button type="button">PDF</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Contrato/Ano:</strong><br>9912730098/2025<br>/2025</td>
+                                <td><strong>SECID</strong></td>
+                                <td><p><strong>Contratada:</strong> EMPRESA BRASILEIRA DE CORREIOS E TELEGRAFOS</p><p><strong>Tipo de Contratação:</strong> INEXIBILIDADE</p><p><strong>Objeto:</strong> Contratação de produtos e serviços por meio de Pacote de Serviços dos CORREIOS mediante adesão ao Termo de Condições Comerciais.</p><p><strong>Processo/Ano:</strong> 2025.12000.01353/2025</p><p><strong>Contrato/Ano:</strong> 9912730098/2025 /2025</p><p><strong>Dt. Assinatura:</strong> 05/12/2025</p></td>
+                                <td><strong>111.075,50</strong></td><td><strong>05/12/2025</strong></td><td><strong>05/12/2026</strong></td><td><button type="button">Detalhar</button><button type="button">PDF</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Contrato/Ano:</strong> 0 3<br>/2025-PGE/<br>MA/2025</td>
+                                <td><strong>PGE</strong></td>
+                                <td><p><strong>Contratada:</strong> Ar Rp Certificação Digital Ltda</p><p><strong>Tipo de Contratação:</strong> DISPENSA</p><p><strong>Objeto:</strong> Contratação de empresa especializada em emissão de Certificados Digitais do Tipo A1 e A3.</p><p><strong>Processo/Ano:</strong> 2024.11103.08655/2024</p><p><strong>Contrato/Ano:</strong> 0 3 /2025-PGE/MA/2025</p><p><strong>Dt. Assinatura:</strong> 21/05/2025</p></td>
+                                <td><strong>14.500,00</strong></td><td><strong>21/05/2025</strong></td><td><strong>21/05/2026</strong></td><td><button type="button">Detalhar</button><button type="button">PDF</button></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Contrato/Ano:</strong> 0 4<br>/2025-PGE/<br>MA/2025</td>
+                                <td><strong>PGE</strong></td>
+                                <td><p><strong>Contratada:</strong> WIKI TELECOMUNICACOES EIRELI</p><p><strong>Tipo de Contratação:</strong> DISPENSA</p><p><strong>Objeto:</strong> Contratação de empresa especializada na prestação de serviços de Telefonia Fixa Comutada.</p><p><strong>Processo/Ano:</strong> 20241110310179/2024</p><p><strong>Contrato/Ano:</strong> 0 4 /2025-PGE/MA/2025</p><p><strong>Dt. Assinatura:</strong> 16/05/2025</p></td>
+                                <td><strong>52.890,00</strong></td><td><strong>16/05/2025</strong></td><td><strong>16/05/2027</strong></td><td><button type="button">Detalhar</button><button type="button">PDF</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
 

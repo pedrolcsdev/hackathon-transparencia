@@ -41,13 +41,6 @@
             <p>Preencha os campos, seguindo a ordem e faça a pesquisa.</p>
         </section>
 
-        <section class="resumoGrid" aria-label="Resumo de receitas">
-            <article class="resumoCard"><span>Total recebido <span class="ajudaTopico" tabindex="0" aria-label="O que é total recebido?" data-ajuda="Todo o dinheiro que entrou para o governo."><i class="fa-solid fa-question"></i></span></span><strong>R$ 21,6 bi</strong></article>
-            <article class="resumoCard"><span>Receita do dia a dia <span class="ajudaTopico" tabindex="0" aria-label="O que é receita do dia a dia?" data-ajuda="Dinheiro usado para manter os serviços públicos funcionando."><i class="fa-solid fa-question"></i></span></span><strong>R$ 19,8 bi</strong></article>
-            <article class="resumoCard"><span>Repasses recebidos <span class="ajudaTopico" tabindex="0" aria-label="O que são repasses recebidos?" data-ajuda="Dinheiro recebido de outro governo ou instituição."><i class="fa-solid fa-question"></i></span></span><strong>R$ 7,3 bi</strong></article>
-            <article class="resumoCard"><span>Fontes com movimento <span class="ajudaTopico" tabindex="0" aria-label="O que são fontes com movimento?" data-ajuda="Origens de dinheiro que tiveram entrada no período."><i class="fa-solid fa-question"></i></span></span><strong>42</strong></article>
-        </section>
-
         <section class="painelConsulta">
             <div class="secaoTitulo">
                 <div><h2>Buscar receitas</h2><p>Use a busca básica para consultas rápidas ou ligue a busca avançada para abrir todos os filtros.</p></div>
@@ -100,10 +93,62 @@
                     <button class="botaoLimpar" type="reset">Limpar pesquisa</button>
                 </div>
             </form>
-            <div class="dadosGrid" hidden>
-                <div class="linhaTabela"><strong>ICMS</strong><span>Imposto sobre venda de produtos e serviços</span><span class="statusConsulta">Do dia a dia</span></div>
-                <div class="linhaTabela"><strong>Fundo de Participação</strong><span>Repasses previstos em lei</span><span class="statusConsulta">Repasse</span></div>
-                <div class="linhaTabela"><strong>Convênios</strong><span>Dinheiro ligado a programas específicos</span><span class="statusConsulta">Investimento</span></div>
+            <div class="dadosGrid resultadoPesquisa resultadoReceitas" hidden>
+                <div class="resultadoCabecalho">
+                    <h3>Resultado da pesquisa</h3>
+                    <strong>Filtros utilizados</strong>
+                </div>
+                <dl class="filtrosUsados filtrosUsadosReceita">
+                    <div><dt>Visualização:</dt><dd>Por UGs</dd></div>
+                    <div><dt>Unidade:</dt><dd>todos</dd></div>
+                    <div><dt>Natureza:</dt><dd>todos</dd></div>
+                    <div><dt>Origem:</dt><dd>Todos</dd></div>
+                    <div><dt>Especie:</dt><dd>Todos</dd></div>
+                </dl>
+                <div class="totaisResultado totaisReceita">
+                    <article>
+                        <h4>Receitas Previstas <span class="ajudaTopico" tabindex="0" aria-label="O que são receitas previstas?" data-ajuda="Valores que o governo estimou arrecadar no período."><i class="fa-solid fa-question"></i></span></h4>
+                        <strong>R$ 27.087.108.000,00</strong>
+                    </article>
+                    <article>
+                        <h4>Receitas Realizadas <span class="ajudaTopico" tabindex="0" aria-label="O que são receitas realizadas?" data-ajuda="Valores que efetivamente entraram nos cofres públicos."><i class="fa-solid fa-question"></i></span></h4>
+                        <strong>R$ 10.945.980.003,22</strong>
+                    </article>
+                </div>
+                <div class="barraTabelaResultado">
+                    <div class="controlesTabela">
+                        <label>Exibir <select><option>10</option><option>25</option><option>50</option></select></label>
+                        <label>Ordenar <select><option>Cód</option><option>Descrição</option></select></label>
+                        <label>Ordem <select><option>Crescente</option><option>Decrescente</option></select></label>
+                    </div>
+                    <div class="acoesTabela">
+                        <input type="search" placeholder="Busca resultados">
+                        <button type="button">Pesquisar</button>
+                        <button type="button">Dicionário de dados</button>
+                        <button type="button">XLS</button>
+                        <button type="button">CSV</button>
+                        <button type="button">PDF</button>
+                    </div>
+                </div>
+                <div class="tabelaResultadoWrap">
+                    <table class="tabelaResultado tabelaReceitas">
+                        <thead>
+                            <tr><th></th><th>Cód</th><th>Descrição</th><th>Previsto</th><th>Realizado</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td></td><td>0</td><td>OUTROS PODERES</td><td>R$ 0,00</td><td>R$ 175.176.621,70</td></tr>
+                            <tr><td><span class="expandirLinha">+</span></td><td><a href="#">40905</a></td><td>Fundo Especial Registral de Regularização Fun</td><td>R$ 0,00</td><td>R$ 838.648,91</td></tr>
+                            <tr><td><span class="expandirLinha">+</span></td><td><a href="#">110103</a></td><td>Procuradoria Geral do Estado</td><td>R$ 0,00</td><td>R$ 16.262,45</td></tr>
+                            <tr><td><span class="expandirLinha">+</span></td><td><a href="#">110105</a></td><td>Secretaria de Estado de Representação Institucional no Distrito Federal</td><td>R$ 0,00</td><td>R$ 40,19</td></tr>
+                            <tr><td><span class="expandirLinha">+</span></td><td><a href="#">110109</a></td><td>Casa Civil</td><td>R$ 0,00</td><td>R$ 615,06</td></tr>
+                            <tr><td><span class="expandirLinha">+</span></td><td><a href="#">110111</a></td><td>Fundação Escola de Governo do Maranhão (a partir de 2025)</td><td>R$ 0,00</td><td>R$ 23,53</td></tr>
+                            <tr><td><span class="expandirLinha">+</span></td><td><a href="#">110121</a></td><td>Secretaria de Comunicação Social</td><td>R$ 0,00</td><td>R$ 580,61</td></tr>
+                            <tr><td><span class="expandirLinha">+</span></td><td><a href="#">110122</a></td><td>Secretaria de Transparência e Controle</td><td>R$ 0,00</td><td>R$ 75,92</td></tr>
+                            <tr><td><span class="expandirLinha">+</span></td><td><a href="#">110124</a></td><td>Secretaria de Governo</td><td>R$ 0,00</td><td>R$ 69.092,03</td></tr>
+                            <tr><td><span class="expandirLinha">+</span></td><td><a href="#">110125</a></td><td>Secretaria de Articulação Política</td><td>R$ 0,00</td><td>R$ 135,71</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
 

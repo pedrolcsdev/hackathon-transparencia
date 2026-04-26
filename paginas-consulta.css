@@ -1011,7 +1011,7 @@ a {
 }
 
 .totaisResultado article {
-    overflow: hidden;
+    overflow: visible;
     border: 1px solid rgba(16, 42, 67, 0.16);
     border-radius: 4px;
     background: #fff;
@@ -1026,6 +1026,38 @@ a {
     background: var(--pagina-cor);
     font-size: 22px;
     font-weight: 500;
+}
+
+.totaisResultado h4 .ajudaTopico {
+    margin-left: 6px;
+    vertical-align: middle;
+    background: #fff;
+    color: var(--pagina-cor);
+}
+
+.totaisResultado h4 .ajudaTopico i {
+    color: var(--pagina-cor);
+}
+
+.totaisResultado h4 .ajudaTopico::after {
+    top: calc(100% + 10px);
+    bottom: auto;
+    z-index: 20;
+    transform: translate(-50%, -6px);
+}
+
+.totaisResultado h4 .ajudaTopico::before {
+    top: calc(100% + 4px);
+    bottom: auto;
+    z-index: 21;
+    border-top-color: transparent;
+    border-bottom-color: #123754;
+}
+
+.totaisResultado h4 .ajudaTopico:hover::after,
+.totaisResultado h4 .ajudaTopico:focus::after,
+.totaisResultado h4 .ajudaTopico.is-active::after {
+    transform: translate(-50%, 0);
 }
 
 .totaisResultado strong {
@@ -1115,6 +1147,97 @@ a {
 
 .tabelaResultado a {
     color: var(--pagina-cor);
+}
+
+.totaisReceita {
+    width: min(1020px, 100%);
+    margin: 28px auto 8px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4px;
+}
+
+.filtrosUsadosReceita {
+    grid-template-columns: 1fr repeat(4, minmax(140px, 1fr));
+}
+
+.expandirLinha {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: var(--pagina-cor);
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.resultadoCabecalho p {
+    margin: 18px 0 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(16, 42, 67, 0.24);
+    color: #66727f;
+}
+
+.tabelaRemuneracao {
+    min-width: 1120px;
+}
+
+.tabelaRemuneracao td:first-child {
+    width: 140px;
+}
+
+.barraContratos {
+    margin-top: -12px;
+}
+
+.barraContratos .acoesTabela label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #66727f;
+}
+
+.tabelaContratos {
+    min-width: 1320px;
+}
+
+.tabelaContratos th,
+.tabelaContratos td {
+    vertical-align: middle;
+}
+
+.tabelaContratos th:nth-child(3),
+.tabelaContratos td:nth-child(3) {
+    width: 520px;
+    text-align: left;
+}
+
+.tabelaContratos td {
+    padding: 12px;
+}
+
+.tabelaContratos p {
+    margin: 0 0 8px;
+    line-height: 1.25;
+}
+
+.tabelaContratos td:last-child {
+    display: grid;
+    gap: 10px;
+    align-content: center;
+}
+
+.tabelaContratos td:last-child button {
+    min-height: 24px;
+    border: 1px solid rgba(16, 42, 67, 0.22);
+    color: var(--pagina-cor);
+    background: #fff;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
 }
 
 @media (min-width: 720px) {
@@ -1254,7 +1377,9 @@ a {
     }
 
     .filtrosUsados,
-    .totaisResultado {
+    .totaisResultado,
+    .totaisReceita,
+    .filtrosUsadosReceita {
         grid-template-columns: 1fr;
     }
 
