@@ -683,26 +683,14 @@
         pointer-events: none;
     }
 
-    .cardDestaquePortal::after,
-    .cardConsultaTematica::after {
-        content: "";
-        position: absolute;
-        width: 140px;
-        height: 140px;
-        top: -42px;
-        right: -42px;
-        border-radius: 50%;
-        background: var(--card-soft);
-        pointer-events: none;
-        transition: transform 0.22s ease, opacity 0.22s ease;
-    }
-
-    .cardDestaquePortal > * {
+    .cardDestaquePortal > *,
+    .cardConsultaTematica > * {
         position: relative;
         z-index: 1;
     }
 
     .cardDestaquePortal:focus-visible,
+    .cardConsultaTematica:focus-visible,
     .cardConsultaTematica:focus-within {
         outline: 3px solid rgba(242, 159, 5, 0.72);
         outline-offset: 4px;
@@ -712,18 +700,12 @@
     .cardDestaquePortal:focus-visible,
     .cardDestaquePortal:active,
     .cardConsultaTematica:hover,
+    .cardConsultaTematica:focus-visible,
     .cardConsultaTematica:focus-within,
     .cardConsultaTematica:active {
         transform: translateY(-4px) scale(1.015);
         box-shadow: var(--ma-sombra-forte);
         border-color: color-mix(in srgb, var(--card-color) 42%, white);
-    }
-
-    .cardDestaquePortal:hover::after,
-    .cardDestaquePortal:focus-visible::after,
-    .cardConsultaTematica:hover::after,
-    .cardConsultaTematica:focus-within::after {
-        transform: scale(1.2);
     }
 
     .iconeDestaquePortal {
@@ -813,7 +795,21 @@
         position: relative;
         overflow: hidden;
         padding: 24px;
+        cursor: pointer;
         transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+    }
+
+    .cardConsultaTematica::before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto;
+        height: 72px;
+        border-radius: 20px 20px 0 0;
+        background:
+            linear-gradient(var(--card-color) 0 6px, transparent 6px),
+            linear-gradient(90deg, color-mix(in srgb, var(--card-color) 24%, rgba(255, 255, 255, 0.8)) 0%, rgba(255, 255, 255, 0.92) 100%),
+            url("images/bannercentro.png") center 42% / cover no-repeat;
+        pointer-events: none;
     }
 
     .cardConsultaTematica:nth-child(1) {
@@ -847,6 +843,7 @@
     }
 
     .cardConsultaTematica:hover,
+    .cardConsultaTematica:focus-visible,
     .cardConsultaTematica:focus-within,
     .cardConsultaTematica:active {
         background: linear-gradient(145deg, #fff 0%, #fff 46%, var(--card-soft) 100%);
@@ -1119,14 +1116,6 @@
 
         .feedbackPortalBotao {
             margin-left: 0;
-        }
-
-        .cardDestaquePortal::after,
-        .cardConsultaTematica::after {
-            width: 96px;
-            height: 96px;
-            top: -34px;
-            right: -34px;
         }
 
         .iconeDestaquePortal,
@@ -1725,6 +1714,52 @@
     document.querySelectorAll('#query, #query-home').forEach(function(searchInput) {
         searchInput.addEventListener('input', function() {
             searchInput.value = sanitizeSearchValue(searchInput.value);
+        });
+    });
+
+    document.querySelectorAll('.cardConsultaTematica').forEach(function(card) {
+        const linkPrincipal = card.querySelector('.setaTemaPortal');
+        const tituloCard = card.querySelector('h4');
+
+        if (!linkPrincipal) {
+            return;
+        }
+
+        card.setAttribute('role', 'link');
+        card.setAttribute('tabindex', '0');
+
+        if (tituloCard && !card.hasAttribute('aria-label')) {
+            card.setAttribute('aria-label', tituloCard.textContent.trim());
+        }
+
+        function abrirLinkPrincipal() {
+            if (linkPrincipal.target === '_blank') {
+                window.open(linkPrincipal.href, '_blank');
+                return;
+            }
+
+            window.location.href = linkPrincipal.href;
+        }
+
+        card.addEventListener('click', function(event) {
+            if (event.target.closest('a')) {
+                return;
+            }
+
+            abrirLinkPrincipal();
+        });
+
+        card.addEventListener('keydown', function(event) {
+            if (event.key !== 'Enter' && event.key !== ' ') {
+                return;
+            }
+
+            if (event.target !== card) {
+                return;
+            }
+
+            event.preventDefault();
+            abrirLinkPrincipal();
         });
     });
 </script>
