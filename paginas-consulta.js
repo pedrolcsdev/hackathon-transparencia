@@ -26,3 +26,38 @@ document.addEventListener('click', function() {
         aberta.classList.remove('is-active');
     });
 });
+
+document.querySelectorAll('[data-toggle-avancado]').forEach(function(toggle) {
+    var painel = toggle.closest('.painelConsulta');
+    var conteudo = painel ? painel.querySelector('[data-conteudo-avancado]') : null;
+
+    function atualizarBuscaAvancada() {
+        if (!conteudo) {
+            return;
+        }
+
+        conteudo.hidden = !toggle.checked;
+    }
+
+    toggle.addEventListener('change', atualizarBuscaAvancada);
+    atualizarBuscaAvancada();
+});
+
+document.querySelectorAll('.formularioConsultaCompacta').forEach(function(formulario) {
+    var painel = formulario.closest('.painelConsulta');
+    var resultados = painel ? painel.querySelector('.dadosGrid') : null;
+
+    formulario.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        if (resultados) {
+            resultados.hidden = false;
+        }
+    });
+
+    formulario.addEventListener('reset', function() {
+        if (resultados) {
+            resultados.hidden = true;
+        }
+    });
+});

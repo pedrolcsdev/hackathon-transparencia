@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="paginas-consulta.css">
 </head>
-<body style="--pagina-cor: var(--ma-azul);">
+<body class="paginaConsultaCompacta paginaReceitas" style="--pagina-cor: var(--ma-vermelho);">
     <header class="cabecalhoPortalNovo">
         <div class="cabecalhoPortalNovoConteudo">
             <button class="cabecalhoMenuBotao" type="button" aria-label="Abrir menu">
@@ -29,10 +29,16 @@
     </header>
 
     <main class="paginaConsulta">
-        <section class="heroConsulta">
-            <a class="voltarLink" href="index.html"><i class="fa-solid fa-arrow-left"></i> Voltar para o início</a>
-            <h1>Receitas públicas</h1>
-            <p>Veja quanto dinheiro entrou no governo e de onde ele veio.</p>
+        <section class="introConsulta">
+            <nav class="breadcrumbConsulta" aria-label="Caminho da página">
+                <a href="index.html">Página Principal</a>
+                <span>/</span>
+                <a href="index.html#consultas-tematicas">Explore</a>
+                <span>/</span>
+                <strong>Receitas</strong>
+            </nav>
+            <h1>Receitas</h1>
+            <p>Preencha os campos, seguindo a ordem e faça a pesquisa.</p>
         </section>
 
         <section class="resumoGrid" aria-label="Resumo de receitas">
@@ -43,14 +49,58 @@
         </section>
 
         <section class="painelConsulta">
-            <div class="secaoTitulo"><div><h2>Buscar receitas</h2><p>Use os filtros para entender de onde vem o dinheiro público.</p></div></div>
-            <form class="filtrosConsulta">
-                <div class="campoConsulta"><label for="busca-receita">Palavra-chave <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre palavra-chave" data-ajuda="Digite o nome de uma receita, imposto, fundo ou assunto."><i class="fa-solid fa-question"></i></span></label><input id="busca-receita" type="search" placeholder="Ex.: ICMS, repasse, fundo"></div>
-                <div class="campoConsulta"><label for="ano-receita">Ano <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre ano" data-ajuda="Escolha o ano em que o dinheiro entrou."><i class="fa-solid fa-question"></i></span></label><select id="ano-receita"><option>2026</option><option>2025</option><option>2024</option></select></div>
-                <div class="campoConsulta"><label for="categoria-receita">Tipo de receita <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre tipo de receita" data-ajuda="Agrupa receitas parecidas, como entradas para serviços ou investimentos."><i class="fa-solid fa-question"></i></span></label><select id="categoria-receita"><option>Todas</option><option>Do dia a dia</option><option>Investimentos</option><option>Entre órgãos</option></select></div>
-                <button class="botaoConsulta" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+            <div class="secaoTitulo">
+                <div><h2>Buscar receitas</h2><p>Use a busca básica para consultas rápidas ou ligue a busca avançada para abrir todos os filtros.</p></div>
+                <label class="alternarAvancado">
+                    <input type="checkbox" id="busca-avancada-receita" data-toggle-avancado>
+                    <span class="switchVisual" aria-hidden="true"></span>
+                    <span>Busca avançada</span>
+                </label>
+            </div>
+            <form class="filtrosConsulta formularioConsultaCompacta" data-filtros-avancados>
+                <section class="grupoFiltros grupoBasico">
+                    <h3>Filtros principais</h3>
+                    <div class="camposLinha">
+                        <div class="campoConsulta campoBusca"><label for="busca-receita">Palavra-chave <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre palavra-chave" data-ajuda="Digite o nome de uma receita, imposto, fundo ou assunto."><i class="fa-solid fa-question"></i></span></label><input id="busca-receita" type="search" placeholder="Ex.: ICMS, repasse, fundo"></div>
+                        <div class="campoConsulta"><label for="ano-receita">Ano <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre ano" data-ajuda="Escolha o ano em que o dinheiro entrou."><i class="fa-solid fa-question"></i></span></label><select id="ano-receita"><option>2026</option><option>2025</option><option>2024</option></select></div>
+                        <div class="campoConsulta"><label for="categoria-receita">Tipo de receita <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre tipo de receita" data-ajuda="Agrupa receitas parecidas, como entradas para serviços ou investimentos."><i class="fa-solid fa-question"></i></span></label><select id="categoria-receita"><option>Todas</option><option>Do dia a dia</option><option>Investimentos</option><option>Entre órgãos</option></select></div>
+                    </div>
+                </section>
+                <div class="conteudoAvancado" data-conteudo-avancado hidden>
+                    <section class="grupoFiltros">
+                        <h3>1. Período</h3>
+                        <div class="camposLinha">
+                            <div class="campoConsulta"><label for="ano-receita-avancado">Ano</label><select id="ano-receita-avancado"><option>2026</option><option>2025</option><option>2024</option></select></div>
+                            <div class="campoConsulta"><label for="mes-inicio-receita">Mês inicial</label><select id="mes-inicio-receita"><option>1-JAN</option><option>2-FEV</option><option>3-MAR</option><option>4-ABR</option></select></div>
+                            <div class="campoConsulta"><label for="mes-fim-receita">Mês final</label><select id="mes-fim-receita"><option>12-DEZ</option><option>11-NOV</option><option>10-OUT</option><option>9-SET</option></select></div>
+                        </div>
+                    </section>
+                    <section class="grupoFiltros">
+                        <h3>2. Visualização</h3>
+                        <div class="campoConsulta"><label for="visualizar-receita">Visualizar por</label><select id="visualizar-receita"><option>Por UGs</option><option>Por natureza</option><option>Por origem</option><option>Por espécie</option></select></div>
+                    </section>
+                    <section class="grupoFiltros grupoDadosGerais">
+                        <h3>3. Dados gerais</h3>
+                        <div class="camposLinha">
+                            <div class="campoConsulta"><label for="unidade-receita">Unidade</label><select id="unidade-receita"><option>Todos</option><option>Secretaria da Fazenda</option><option>Tesouro Estadual</option><option>Fundos estaduais</option></select></div>
+                            <div class="campoConsulta"><label for="natureza-receita">Natureza da receita</label><select id="natureza-receita"><option>Todas</option><option>Receitas correntes</option><option>Receitas de capital</option></select></div>
+                        </div>
+                    </section>
+                    <section class="grupoFiltros grupoInfoAcoes">
+                        <h3>4. Outras Informações</h3>
+                        <div class="botoesInfo">
+                            <button class="botaoSecundario botaoLargo" type="button">Dívida Ativa - Consulta a Lista dos Inscritos</button>
+                            <button class="botaoSecundario" type="button">Arrecadação do Estado</button>
+                            <button class="botaoSecundario" type="button">Renúncia de Receitas</button>
+                        </div>
+                    </section>
+                </div>
+                <div class="acoesPesquisa">
+                    <button class="botaoConsulta" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Pesquisar</button>
+                    <button class="botaoLimpar" type="reset">Limpar pesquisa</button>
+                </div>
             </form>
-            <div class="dadosGrid">
+            <div class="dadosGrid" hidden>
                 <div class="linhaTabela"><strong>ICMS</strong><span>Imposto sobre venda de produtos e serviços</span><span class="statusConsulta">Do dia a dia</span></div>
                 <div class="linhaTabela"><strong>Fundo de Participação</strong><span>Repasses previstos em lei</span><span class="statusConsulta">Repasse</span></div>
                 <div class="linhaTabela"><strong>Convênios</strong><span>Dinheiro ligado a programas específicos</span><span class="statusConsulta">Investimento</span></div>

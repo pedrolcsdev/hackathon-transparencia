@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="paginas-consulta.css">
 </head>
-<body style="--pagina-cor: var(--ma-vermelho);">
+<body class="paginaConsultaCompacta paginaDespesas" style="--pagina-cor: var(--ma-vermelho);">
     <header class="cabecalhoPortalNovo">
         <div class="cabecalhoPortalNovoConteudo">
             <button class="cabecalhoMenuBotao" type="button" aria-label="Abrir menu">
@@ -29,45 +29,225 @@
     </header>
 
     <main class="paginaConsulta">
-        <section class="heroConsulta">
-            <a class="voltarLink" href="index.html"><i class="fa-solid fa-arrow-left"></i> Voltar para o início</a>
-            <h1>Despesas públicas</h1>
-            <p>Veja como o dinheiro público foi planejado, usado e pago.</p>
+        <section class="introConsulta">
+            <nav class="breadcrumbConsulta" aria-label="Caminho da página">
+                <a href="index.html">Página Principal</a>
+                <span>/</span>
+                <a href="index.html#consultas-tematicas">Explore</a>
+                <span>/</span>
+                <strong>Despesas</strong>
+            </nav>
+            <h1>Despesas</h1>
+            <p>Preencha os campos, seguindo a ordem e faça a pesquisa.</p>
         </section>
 
         <section class="resumoGrid" aria-label="Resumo das despesas">
             <article class="resumoCard"><span>Valor reservado <span class="ajudaTopico" tabindex="0" aria-label="O que é valor reservado?" data-ajuda="Dinheiro separado pelo governo para pagar uma despesa."><i class="fa-solid fa-question"></i></span></span><strong>R$ 18,4 bi</strong></article>
             <article class="resumoCard"><span>Valor conferido <span class="ajudaTopico" tabindex="0" aria-label="O que é valor conferido?" data-ajuda="Despesa já conferida porque o serviço ou produto foi entregue."><i class="fa-solid fa-question"></i></span></span><strong>R$ 13,7 bi</strong></article>
             <article class="resumoCard"><span>Valor pago <span class="ajudaTopico" tabindex="0" aria-label="O que é valor pago?" data-ajuda="Dinheiro que já saiu do caixa público para pagar alguém."><i class="fa-solid fa-question"></i></span></span><strong>R$ 12,9 bi</strong></article>
-            <article class="resumoCard"><span>Obras em andamento <span class="ajudaTopico" tabindex="0" aria-label="O que são obras em andamento?" data-ajuda="Obras que ainda não foram finalizadas."><i class="fa-solid fa-question"></i></span></span><strong>1.302</strong></article>
+            <article class="resumoCard"><span>Registros encontrados <span class="ajudaTopico" tabindex="0" aria-label="O que são registros encontrados?" data-ajuda="Quantidade estimada de despesas no recorte atual."><i class="fa-solid fa-question"></i></span></span><strong>1.302</strong></article>
         </section>
 
         <section class="painelConsulta">
             <div class="secaoTitulo">
                 <div>
                     <h2>Buscar despesas</h2>
-                    <p>Use os filtros para encontrar gastos por órgão, período ou situação.</p>
+                    <p>Use a busca básica para consultas rápidas ou ligue a busca avançada para abrir todos os filtros.</p>
                 </div>
+                <label class="alternarAvancado">
+                    <input type="checkbox" id="busca-avancada" data-toggle-avancado>
+                    <span class="switchVisual" aria-hidden="true"></span>
+                    <span>Busca avançada</span>
+                </label>
             </div>
-            <form class="filtrosConsulta">
-                <div class="campoConsulta">
-                    <label for="busca-despesa">Palavra-chave <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre palavra-chave" data-ajuda="Digite um assunto, órgão, empresa ou serviço."><i class="fa-solid fa-question"></i></span></label>
-                    <input id="busca-despesa" type="search" placeholder="Ex.: saúde, educação, empresa">
+            <form class="filtrosConsulta formularioConsultaCompacta" data-filtros-avancados>
+                <section class="grupoFiltros grupoBasico">
+                    <h3>Filtros principais</h3>
+                    <div class="camposLinha">
+                        <div class="campoConsulta campoBusca">
+                            <label for="busca-despesa">Palavra-chave <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre palavra-chave" data-ajuda="Digite um assunto, órgão, empresa ou serviço."><i class="fa-solid fa-question"></i></span></label>
+                            <input id="busca-despesa" type="search" placeholder="Ex.: saúde, educação, empresa">
+                        </div>
+                        <div class="campoConsulta">
+                            <label for="ano-despesa">Ano <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre ano" data-ajuda="Escolha o ano da despesa."><i class="fa-solid fa-question"></i></span></label>
+                            <select id="ano-despesa"><option>2026</option><option>2025</option><option>2024</option></select>
+                        </div>
+                        <div class="campoConsulta">
+                            <label for="situacao-despesa">Situação <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre situação" data-ajuda="Mostra se a despesa foi paga, não paga ou se todas devem aparecer."><i class="fa-solid fa-question"></i></span></label>
+                            <select id="situacao-despesa"><option>Todos</option><option>Pagos</option><option>Não pagos</option></select>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="conteudoAvancado" data-conteudo-avancado hidden>
+                    <section class="grupoFiltros">
+                        <h3>1. Período</h3>
+                        <p>Ver busca por:</p>
+                        <div class="opcoesSegmentadas" role="radiogroup" aria-label="Tipo de período">
+                            <label><input type="radio" name="tipo-periodo" checked><span>Ano</span></label>
+                            <label><input type="radio" name="tipo-periodo"><span>Período</span></label>
+                            <label><input type="radio" name="tipo-periodo"><span>Últimos dias</span></label>
+                        </div>
+                        <div class="camposLinha">
+                            <div class="campoConsulta">
+                                <label for="dias-despesa">Últimos dias</label>
+                                <select id="dias-despesa"><option>30 dias</option><option>60 dias</option><option>90 dias</option></select>
+                            </div>
+                            <div class="campoConsulta">
+                                <label for="data-inicio">Data inicial</label>
+                                <input id="data-inicio" type="date">
+                            </div>
+                            <div class="campoConsulta">
+                                <label for="data-fim">Data final</label>
+                                <input id="data-fim" type="date">
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="grupoFiltros">
+                        <h3>2. Visualização</h3>
+                        <div class="campoConsulta">
+                            <label for="visualizar-por">Visualizar por</label>
+                            <select id="visualizar-por"><option>Unidade Gestora - UG</option><option>Função</option><option>Programa</option><option>Fornecedor / Credor</option></select>
+                        </div>
+                    </section>
+
+                    <section class="grupoFiltros">
+                        <h3>3. Outros filtros</h3>
+                        <div class="opcoesSegmentadas" role="radiogroup" aria-label="Pagamento">
+                            <label><input type="radio" name="pagamento"><span>Pagos</span></label>
+                            <label><input type="radio" name="pagamento"><span>Não Pagos</span></label>
+                            <label><input type="radio" name="pagamento" checked><span>Todos</span></label>
+                        </div>
+                    </section>
+
+                    <section class="grupoFiltros">
+                        <h3>4. Outras Informações</h3>
+                        <button class="botaoSecundario" type="button">Ordens Bancárias por Lote: Lista de Beneficiários</button>
+                    </section>
+
+                    <section class="grupoFiltros grupoDadosGerais">
+                        <h3>5. Dados gerais</h3>
+                        <div class="camposLinha">
+                            <div class="campoConsulta">
+                                <label for="unidade-despesa">Unidade</label>
+                                <select id="unidade-despesa"><option>Todos</option><option>Secretaria de Estado da Saúde</option><option>Secretaria de Educação</option><option>Infraestrutura</option></select>
+                            </div>
+                            <div class="campoConsulta">
+                                <label for="categoria-despesa">Categoria das despesas</label>
+                                <select id="categoria-despesa"><option>Todas</option><option>Despesas correntes</option><option>Despesas de capital</option></select>
+                            </div>
+                            <div class="campoConsulta">
+                                <label for="natureza-despesa">Natureza das despesas</label>
+                                <select id="natureza-despesa"><option>Todos</option><option>Pessoal e encargos sociais</option><option>Outras despesas correntes</option><option>Investimentos</option></select>
+                            </div>
+                            <div class="campoConsulta">
+                                <label for="funcao-despesa">Função</label>
+                                <select id="funcao-despesa"><option>Todos</option><option>Saúde</option><option>Educação</option><option>Transporte</option></select>
+                            </div>
+                            <div class="campoConsulta">
+                                <label for="programa-despesa">Programa</label>
+                                <select id="programa-despesa"><option>Todos</option><option>Atendimento básico</option><option>Manutenção escolar</option><option>Infraestrutura urbana</option></select>
+                            </div>
+                            <div class="campoConsulta">
+                                <label for="fornecedor-despesa">Fornecedor / Credor</label>
+                                <input id="fornecedor-despesa" type="text">
+                            </div>
+                            <div class="campoConsulta">
+                                <label for="subfuncao-despesa">Subfunção</label>
+                                <select id="subfuncao-despesa"><option>Todos</option><option>Atenção básica</option><option>Ensino fundamental</option><option>Transporte rodoviário</option></select>
+                            </div>
+                            <div class="campoConsulta">
+                                <label for="acao-despesa">Ação</label>
+                                <select id="acao-despesa"><option>Todos</option><option>Conservação</option><option>Compra de insumos</option><option>Pagamento de serviços</option></select>
+                            </div>
+                            <div class="campoConsulta">
+                                <label for="fonte-despesa">Fonte</label>
+                                <select id="fonte-despesa"><option>Todas</option><option>Tesouro estadual</option><option>Convênios</option><option>Operações de crédito</option></select>
+                            </div>
+                        </div>
+                    </section>
                 </div>
-                <div class="campoConsulta">
-                    <label for="ano-despesa">Ano <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre ano" data-ajuda="Escolha o ano da despesa."><i class="fa-solid fa-question"></i></span></label>
-                    <select id="ano-despesa"><option>2026</option><option>2025</option><option>2024</option></select>
+
+                <div class="acoesPesquisa">
+                    <button class="botaoConsulta" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Pesquisar</button>
+                    <button class="botaoLimpar" type="reset">Limpar pesquisa</button>
                 </div>
-                <div class="campoConsulta">
-                    <label for="situacao-despesa">Situação <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre situação" data-ajuda="Mostra se a despesa foi reservada, conferida ou paga."><i class="fa-solid fa-question"></i></span></label>
-                    <select id="situacao-despesa"><option>Todas</option><option>Pago</option><option>Conferido</option><option>Reservado</option></select>
-                </div>
-                <button class="botaoConsulta" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
             </form>
-            <div class="dadosGrid">
-                <div class="linhaTabela"><strong>Secretaria de Estado da Saúde</strong><span>Pagamentos de serviços essenciais</span><span class="statusConsulta">Pago</span></div>
-                <div class="linhaTabela"><strong>Secretaria de Educação</strong><span>Manutenção de escolas</span><span class="statusConsulta">Conferido</span></div>
-                <div class="linhaTabela"><strong>Infraestrutura</strong><span>Obras e conservação de vias</span><span class="statusConsulta">Reservado</span></div>
+            <div class="dadosGrid resultadoPesquisa resultadoDespesas" hidden>
+                <div class="resultadoCabecalho">
+                    <h3>Resultado da pesquisa</h3>
+                    <strong>Filtros utilizados</strong>
+                </div>
+
+                <dl class="filtrosUsados">
+                    <div><dt>Visualização:</dt><dd>Unidade Gestora - UG</dd></div>
+                    <div><dt>Ação:</dt><dd>todos</dd></div>
+                    <div><dt>SubFunção:</dt><dd>todos</dd></div>
+                    <div><dt>Fornecedor:</dt><dd>Não cadastrado</dd></div>
+                    <div><dt>Unidade:</dt><dd>todos</dd></div>
+                    <div><dt>Natureza:</dt><dd>todos</dd></div>
+                    <div><dt>Função:</dt><dd>todos</dd></div>
+                    <div><dt>Programa:</dt><dd>todos</dd></div>
+                    <div><dt>Fonte:</dt><dd>todas</dd></div>
+                </dl>
+
+                <div class="totaisResultado">
+                    <article>
+                        <h4>Empenhado</h4>
+                        <strong>R$ 10.612.923.406,51</strong>
+                    </article>
+                    <article>
+                        <h4>Liquidado</h4>
+                        <strong>R$ 8.911.939.156,16</strong>
+                    </article>
+                    <article>
+                        <h4>Pago</h4>
+                        <strong>R$ 8.568.453.794,83</strong>
+                    </article>
+                </div>
+
+                <div class="barraTabelaResultado">
+                    <div class="controlesTabela">
+                        <label>Exibir <select><option>10</option><option>25</option><option>50</option></select></label>
+                        <label>Ordenar <select><option>Cód</option><option>Descrição</option><option>Pago</option></select></label>
+                        <label>Ordem <select><option>Crescente</option><option>Decrescente</option></select></label>
+                    </div>
+                    <div class="acoesTabela">
+                        <input type="search" placeholder="Busca resultados">
+                        <button type="button">Pesquisar</button>
+                        <button type="button">Dicionário de dados</button>
+                        <button type="button">XLS</button>
+                        <button type="button">CSV</button>
+                        <button type="button">PDF</button>
+                    </div>
+                </div>
+
+                <div class="tabelaResultadoWrap">
+                    <table class="tabelaResultado">
+                        <thead>
+                            <tr>
+                                <th>Cód</th>
+                                <th>Descrição</th>
+                                <th>Empenhado</th>
+                                <th>Liquidado</th>
+                                <th>Pago</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>0</td><td>OUTROS PODERES</td><td>R$ 1.425.255.562,75</td><td>R$ 1.011.095.557,15</td><td>R$ 927.309.509,01</td></tr>
+                            <tr><td><a href="#">10101</a></td><td>Assembleia Legislativa do Maranhão</td><td>R$ 184.299.327,56</td><td>R$ 174.771.772,64</td><td>R$ 169.185.247,92</td></tr>
+                            <tr><td><a href="#">40905</a></td><td>Fundo Especial Registral de Regularização Fun</td><td>R$ 403.690,27</td><td>R$ 40.838,64</td><td>R$ 40.838,64</td></tr>
+                            <tr><td><a href="#">110103</a></td><td>Procuradoria Geral do Estado</td><td>R$ 39.416.517,85</td><td>R$ 38.853.331,56</td><td>R$ 38.836.705,26</td></tr>
+                            <tr><td><a href="#">110105</a></td><td>Secretaria de Estado de Representação Institucional no Distrito Federal</td><td>R$ 1.274.575,66</td><td>R$ 1.202.097,77</td><td>R$ 1.202.097,76</td></tr>
+                            <tr><td><a href="#">110109</a></td><td>Casa Civil</td><td>R$ 25.137.406,68</td><td>R$ 15.314.498,29</td><td>R$ 15.314.498,29</td></tr>
+                            <tr><td><a href="#">110111</a></td><td>Fundação Escola de Governo do Maranhão (a partir de 2025)</td><td>R$ 923.550,31</td><td>R$ 786.820,31</td><td>R$ 786.820,31</td></tr>
+                            <tr><td><a href="#">110121</a></td><td>Secretaria de Comunicação Social</td><td>R$ 44.754.397,12</td><td>R$ 44.433.670,65</td><td>R$ 44.433.670,65</td></tr>
+                            <tr><td><a href="#">110122</a></td><td>Secretaria de Transparência e Controle</td><td>R$ 7.925.966,41</td><td>R$ 7.894.953,83</td><td>R$ 7.864.953,83</td></tr>
+                            <tr><td><a href="#">110124</a></td><td>Secretaria de Governo</td><td>R$ 458.689.008,32</td><td>R$ 368.757.972,90</td><td>R$ 346.109.917,94</td></tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
 

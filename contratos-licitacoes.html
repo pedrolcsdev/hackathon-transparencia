@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="paginas-consulta.css">
 </head>
-<body style="--pagina-cor: var(--ma-laranja);">
+<body class="paginaConsultaCompacta paginaContratos" style="--pagina-cor: var(--ma-vermelho);">
     <header class="cabecalhoPortalNovo">
         <div class="cabecalhoPortalNovoConteudo">
             <button class="cabecalhoMenuBotao" type="button" aria-label="Abrir menu">
@@ -29,10 +29,16 @@
     </header>
 
     <main class="paginaConsulta">
-        <section class="heroConsulta">
-            <a class="voltarLink" href="index.html"><i class="fa-solid fa-arrow-left"></i> Voltar para o início</a>
-            <h1>Contratos e licitações</h1>
-            <p>Veja compras do governo, contratos, fornecedores e processos de escolha.</p>
+        <section class="introConsulta">
+            <nav class="breadcrumbConsulta" aria-label="Caminho da página">
+                <a href="index.html">Página Principal</a>
+                <span>/</span>
+                <a href="index.html#consultas-tematicas">Explore</a>
+                <span>/</span>
+                <strong>Consulta de Contratos</strong>
+            </nav>
+            <h1>Consulta de Contratos</h1>
+            <p>Preencha os campos, seguindo a ordem e faça a pesquisa.</p>
         </section>
 
         <section class="resumoGrid" aria-label="Resumo de contratos e licitações">
@@ -43,14 +49,61 @@
         </section>
 
         <section class="painelConsulta">
-            <div class="secaoTitulo"><div><h2>Buscar contratos</h2><p>Use os filtros para encontrar contratos por fornecedor, tipo ou situação.</p></div></div>
-            <form class="filtrosConsulta">
-                <div class="campoConsulta"><label for="busca-contrato">Fornecedor ou objeto <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre fornecedor ou objeto" data-ajuda="Busque pelo nome da empresa ou pelo que foi comprado ou contratado."><i class="fa-solid fa-question"></i></span></label><input id="busca-contrato" type="search" placeholder="Ex.: merenda, transporte, empresa"></div>
-                <div class="campoConsulta"><label for="modalidade-contrato">Tipo de compra <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre tipo de compra" data-ajuda="Mostra como o governo fez a compra ou contratação."><i class="fa-solid fa-question"></i></span></label><select id="modalidade-contrato"><option>Todas</option><option>Pregão</option><option>Concorrência</option><option>Dispensa</option></select></div>
-                <div class="campoConsulta"><label for="situacao-contrato">Situação <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre situação" data-ajuda="Mostra se o contrato ou processo está ativo, encerrado ou em andamento."><i class="fa-solid fa-question"></i></span></label><select id="situacao-contrato"><option>Todas</option><option>Ativo</option><option>Encerrado</option><option>Em andamento</option></select></div>
-                <button class="botaoConsulta" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+            <div class="secaoTitulo">
+                <div><h2>Buscar contratos</h2><p>Use a busca básica para consultas rápidas ou ligue a busca avançada para abrir todos os filtros.</p></div>
+                <label class="alternarAvancado">
+                    <input type="checkbox" id="busca-avancada-contrato" data-toggle-avancado>
+                    <span class="switchVisual" aria-hidden="true"></span>
+                    <span>Busca avançada</span>
+                </label>
+            </div>
+            <form class="filtrosConsulta formularioConsultaCompacta" data-filtros-avancados>
+                <section class="grupoFiltros grupoBasico">
+                    <h3>Filtros principais</h3>
+                    <div class="camposLinha">
+                        <div class="campoConsulta campoBusca"><label for="busca-contrato">Fornecedor ou objeto <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre fornecedor ou objeto" data-ajuda="Busque pelo nome da empresa ou pelo que foi comprado ou contratado."><i class="fa-solid fa-question"></i></span></label><input id="busca-contrato" type="search" placeholder="Ex.: merenda, transporte, empresa"></div>
+                        <div class="campoConsulta"><label for="modalidade-contrato">Tipo de compra <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre tipo de compra" data-ajuda="Mostra como o governo fez a compra ou contratação."><i class="fa-solid fa-question"></i></span></label><select id="modalidade-contrato"><option>Todas</option><option>Pregão</option><option>Concorrência</option><option>Dispensa</option></select></div>
+                        <div class="campoConsulta"><label for="situacao-contrato">Situação <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre situação" data-ajuda="Mostra se o contrato ou processo está ativo, encerrado ou em andamento."><i class="fa-solid fa-question"></i></span></label><select id="situacao-contrato"><option>Todas</option><option>Ativo</option><option>Encerrado</option><option>Em andamento</option></select></div>
+                    </div>
+                </section>
+                <div class="conteudoAvancado" data-conteudo-avancado hidden>
+                    <section class="grupoFiltros">
+                        <h3>1. Período</h3>
+                        <div class="camposLinha">
+                            <div class="campoConsulta"><label for="ano-contrato-avancado">Ano do Contrato</label><select id="ano-contrato-avancado"><option>2025</option><option>2026</option><option>2024</option></select></div>
+                            <div class="campoConsulta"><label for="ano-processo-contrato">Ano do Processo</label><select id="ano-processo-contrato"><option>Selecione um ano</option><option>2026</option><option>2025</option><option>2024</option></select></div>
+                            <div class="campoConsulta"><label for="assinatura-inicio">Data de assinatura inicial</label><input id="assinatura-inicio" type="date"></div>
+                            <div class="campoConsulta"><label for="assinatura-fim">Data de assinatura final</label><input id="assinatura-fim" type="date"></div>
+                            <div class="campoConsulta"><label for="vigencia-inicio">Início da vigência</label><input id="vigencia-inicio" type="date"></div>
+                            <div class="campoConsulta"><label for="vigencia-fim">Fim da vigência</label><input id="vigencia-fim" type="date"></div>
+                        </div>
+                    </section>
+                    <section class="grupoFiltros grupoDadosGerais">
+                        <h3>2. Dados gerais</h3>
+                        <div class="camposLinha">
+                            <div class="campoConsulta"><label for="orgao-contrato">Órgão/UG</label><select id="orgao-contrato"><option>Selecione um órgão</option><option>Secretaria de Administração</option><option>Secretaria de Saúde</option><option>Secretaria de Educação</option></select></div>
+                            <div class="campoConsulta"><label for="tipo-contratacao">Tipo de Contratação</label><select id="tipo-contratacao"><option>Selecione um tipo de contratação</option><option>Pregão</option><option>Concorrência</option><option>Dispensa</option></select></div>
+                            <div class="campoConsulta"><label for="valor-maior-contrato">Valor Global / Maior que</label><input id="valor-maior-contrato" type="text" placeholder="Valor Global"></div>
+                            <div class="campoConsulta"><label for="valor-menor-contrato">Valor Global / Menor que</label><input id="valor-menor-contrato" type="text" placeholder="Valor Global"></div>
+                            <div class="campoConsulta"><label for="contratada-contrato">Contratada</label><input id="contratada-contrato" type="text" placeholder="Digite o nome da contratada"></div>
+                            <div class="campoConsulta"><label for="objeto-contrato">Objeto do Contrato</label><input id="objeto-contrato" type="text" placeholder="Objeto do Contrato"></div>
+                        </div>
+                    </section>
+                    <section class="grupoFiltros grupoInfoAcoes">
+                        <h3>3. Outras informações</h3>
+                        <div class="botoesInfo">
+                            <button class="botaoSecundario botaoLargo" type="button">Portal Nacional de Contratações Públicas - PNCP</button>
+                            <button class="botaoSecundario" type="button">Contratações - PNCP</button>
+                            <button class="botaoSecundario" type="button">Relação de Fiscais de Contratos</button>
+                        </div>
+                    </section>
+                </div>
+                <div class="acoesPesquisa">
+                    <button class="botaoConsulta" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Pesquisar</button>
+                    <button class="botaoLimpar" type="reset">Limpar pesquisa</button>
+                </div>
             </form>
-            <div class="dadosGrid">
+            <div class="dadosGrid" hidden>
                 <div class="linhaTabela"><strong>Contrato de manutenção de prédios</strong><span>Secretaria de Administração</span><span class="statusConsulta">Ativo</span></div>
                 <div class="linhaTabela"><strong>Compra de equipamentos</strong><span>Secretaria de Saúde</span><span class="statusConsulta">Em andamento</span></div>
                 <div class="linhaTabela"><strong>Serviços de transporte</strong><span>Secretaria de Educação</span><span class="statusConsulta">Publicado</span></div>

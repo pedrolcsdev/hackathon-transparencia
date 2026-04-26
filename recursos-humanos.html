@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="paginas-consulta.css">
 </head>
-<body style="--pagina-cor: var(--ma-verde);">
+<body class="paginaConsultaCompacta paginaRecursosHumanos" style="--pagina-cor: var(--ma-vermelho);">
     <header class="cabecalhoPortalNovo">
         <div class="cabecalhoPortalNovoConteudo">
             <button class="cabecalhoMenuBotao" type="button" aria-label="Abrir menu">
@@ -29,10 +29,16 @@
     </header>
 
     <main class="paginaConsulta">
-        <section class="heroConsulta">
-            <a class="voltarLink" href="index.html"><i class="fa-solid fa-arrow-left"></i> Voltar para o início</a>
-            <h1>Servidores públicos</h1>
-            <p>Veja salários, cargos, funções, diárias e outras informações sobre servidores.</p>
+        <section class="introConsulta">
+            <nav class="breadcrumbConsulta" aria-label="Caminho da página">
+                <a href="index.html">Página Principal</a>
+                <span>/</span>
+                <a href="index.html#consultas-tematicas">Explore</a>
+                <span>/</span>
+                <strong>Remuneração</strong>
+            </nav>
+            <h1>Remuneração de Servidores</h1>
+            <p>Para consultar a remuneração de servidores, selecione os filtros.</p>
         </section>
 
         <section class="resumoGrid" aria-label="Resumo de servidores públicos">
@@ -43,14 +49,54 @@
         </section>
 
         <section class="painelConsulta">
-            <div class="secaoTitulo"><div><h2>Buscar servidores</h2><p>Encontre informações por nome, órgão ou tipo de vínculo.</p></div></div>
-            <form class="filtrosConsulta">
-                <div class="campoConsulta"><label for="busca-rh">Nome ou matrícula <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre nome ou matrícula" data-ajuda="Busque pelo nome da pessoa ou pelo número de identificação no trabalho."><i class="fa-solid fa-question"></i></span></label><input id="busca-rh" type="search" placeholder="Digite nome, matrícula ou cargo"></div>
-                <div class="campoConsulta"><label for="orgao-rh">Órgão <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre órgão" data-ajuda="Escolha onde a pessoa trabalha no governo."><i class="fa-solid fa-question"></i></span></label><select id="orgao-rh"><option>Todos</option><option>Saúde</option><option>Educação</option><option>Segurança</option></select></div>
-                <div class="campoConsulta"><label for="vinculo-rh">Tipo de vínculo <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre tipo de vínculo" data-ajuda="Mostra o tipo de relação da pessoa com o governo."><i class="fa-solid fa-question"></i></span></label><select id="vinculo-rh"><option>Todos</option><option>Efetivo</option><option>Comissionado</option><option>Temporário</option></select></div>
-                <button class="botaoConsulta" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+            <div class="secaoTitulo">
+                <div><h2>Buscar remuneração</h2><p>Use a busca básica para consultas rápidas ou ligue a busca avançada para abrir todos os filtros.</p></div>
+                <label class="alternarAvancado">
+                    <input type="checkbox" id="busca-avancada-rh" data-toggle-avancado>
+                    <span class="switchVisual" aria-hidden="true"></span>
+                    <span>Busca avançada</span>
+                </label>
+            </div>
+            <form class="filtrosConsulta formularioConsultaCompacta" data-filtros-avancados>
+                <section class="grupoFiltros grupoBasico">
+                    <h3>Filtros principais</h3>
+                    <div class="camposLinha">
+                        <div class="campoConsulta campoBusca"><label for="busca-rh">Nome ou matrícula <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre nome ou matrícula" data-ajuda="Busque pelo nome da pessoa ou pelo número de identificação no trabalho."><i class="fa-solid fa-question"></i></span></label><input id="busca-rh" type="search" placeholder="Digite nome, matrícula ou cargo"></div>
+                        <div class="campoConsulta"><label for="orgao-rh">Órgão <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre órgão" data-ajuda="Escolha onde a pessoa trabalha no governo."><i class="fa-solid fa-question"></i></span></label><select id="orgao-rh"><option>Todos</option><option>Saúde</option><option>Educação</option><option>Segurança</option></select></div>
+                        <div class="campoConsulta"><label for="vinculo-rh">Tipo de vínculo <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre tipo de vínculo" data-ajuda="Mostra o tipo de relação da pessoa com o governo."><i class="fa-solid fa-question"></i></span></label><select id="vinculo-rh"><option>Todos</option><option>Efetivo</option><option>Comissionado</option><option>Temporário</option></select></div>
+                    </div>
+                </section>
+                <div class="conteudoAvancado" data-conteudo-avancado hidden>
+                    <section class="grupoFiltros">
+                        <h3>1. Período</h3>
+                        <div class="camposLinha">
+                            <div class="campoConsulta"><label for="ano-rh">Ano</label><select id="ano-rh"><option>2026</option><option>2025</option><option>2024</option></select></div>
+                            <div class="campoConsulta"><label for="mes-rh">Mês</label><select id="mes-rh"><option>Março</option><option>Fevereiro</option><option>Janeiro</option><option>Todos</option></select></div>
+                        </div>
+                    </section>
+                    <section class="grupoFiltros">
+                        <h3>2. Filtros</h3>
+                        <div class="opcoesSegmentadas opcoesComDivisor" role="radiogroup" aria-label="Tipo de filtro">
+                            <label><input type="radio" name="filtro-rh" checked><span>Nome do servidor</span></label>
+                            <label><input type="radio" name="filtro-rh"><span>Por órgão</span></label>
+                        </div>
+                        <div class="campoConsulta"><label for="nome-servidor-rh">Nome do servidor <small>(sem acentuação)</small></label><input id="nome-servidor-rh" type="search" placeholder="Digite o nome do servidor"></div>
+                    </section>
+                    <section class="grupoFiltros grupoDadosGerais grupoInfoAcoes">
+                        <h3>3. Outras Informações</h3>
+                        <div class="botoesInfo">
+                            <button class="botaoSecundario botaoLargo" type="button">Dados Abertos - Folha de Pagamento</button>
+                            <button class="botaoSecundario" type="button">Tabela de Cargos e Funções</button>
+                            <button class="botaoSecundario" type="button">Relação de Servidores</button>
+                        </div>
+                    </section>
+                </div>
+                <div class="acoesPesquisa">
+                    <button class="botaoConsulta" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Pesquisar</button>
+                    <button class="botaoLimpar" type="reset">Limpar pesquisa</button>
+                </div>
             </form>
-            <div class="dadosGrid">
+            <div class="dadosGrid" hidden>
                 <div class="linhaTabela"><strong>Analista executivo</strong><span>Secretaria de Estado da Gestão</span><span class="statusConsulta">Efetivo</span></div>
                 <div class="linhaTabela"><strong>Professor</strong><span>Secretaria de Educação</span><span class="statusConsulta">Ativo</span></div>
                 <div class="linhaTabela"><strong>Enfermeiro</strong><span>Secretaria de Saúde</span><span class="statusConsulta">Ativo</span></div>
