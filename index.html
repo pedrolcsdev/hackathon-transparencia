@@ -391,6 +391,10 @@
         margin: 0 auto 76px;
     }
 
+    .secaoPortalEstrutura {
+        margin-bottom: 42px;
+    }
+
     .heroPortal {
         position: relative;
         min-height: 500px;
@@ -508,6 +512,122 @@
         gap: 18px;
     }
 
+    .feedbackPortal {
+        width: min(1120px, 90%);
+        min-height: 78px;
+        margin: 0 auto 76px;
+        display: grid;
+        grid-template-columns: minmax(150px, 220px) 1fr minmax(150px, 190px);
+        align-items: stretch;
+        overflow: hidden;
+        border: 1px solid rgba(3, 76, 140, 0.12);
+        border-radius: 14px;
+        background: #ffffff;
+        box-shadow: 0 12px 30px rgba(16, 42, 67, 0.08);
+    }
+
+    .feedbackPortalPaisagem {
+        background:
+            linear-gradient(90deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.86)),
+            url("images/bannercentro.png") center 45% / cover no-repeat;
+    }
+
+    .feedbackPortalConteudo {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 18px;
+        min-width: 0;
+    }
+
+    .feedbackPortalIcone {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        background: var(--ma-azul);
+        color: #fff;
+        box-shadow: 0 10px 20px rgba(3, 76, 140, 0.22);
+    }
+
+    .feedbackPortalIcone .iconeLocal,
+    .feedbackPortalBotao .iconeLocal {
+        filter: brightness(0) invert(1);
+    }
+
+    .feedbackPortalTexto {
+        min-width: 0;
+    }
+
+    .feedbackPortalTexto strong {
+        display: block;
+        color: var(--ma-azul);
+        font-size: 14px;
+        line-height: 1.25;
+    }
+
+    .feedbackPortalTexto p {
+        margin: 3px 0 0;
+        color: var(--ma-texto-suave);
+        font-size: 12px;
+        line-height: 1.35;
+    }
+
+    .feedbackPortalBotao {
+        min-height: 34px;
+        margin-left: auto;
+        padding: 8px 14px;
+        border: 1px solid rgba(3, 76, 140, 0.35);
+        border-radius: 999px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        flex: 0 0 auto;
+        color: var(--ma-azul);
+        background: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .feedbackPortalBotao:hover,
+    .feedbackPortalBotao:focus-visible {
+        transform: translateY(-2px);
+        background: #f8fbff;
+        box-shadow: 0 10px 22px rgba(3, 76, 140, 0.16);
+    }
+
+    .feedbackPortalBotaoIcone {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--ma-azul);
+        color: #fff;
+    }
+
+    .feedbackPortalSelo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 14px;
+        color: var(--ma-azul);
+        font-size: 14px;
+        font-weight: 800;
+        font-style: italic;
+        line-height: 1.2;
+        text-align: center;
+        border-left: 1px solid rgba(3, 76, 140, 0.1);
+        background: #f8fbff;
+    }
+
     .cardDestaquePortal,
     .cardConsultaTematica {
         background: #ffffff;
@@ -554,8 +674,13 @@
         content: "";
         position: absolute;
         inset: 0 0 auto;
-        height: 5px;
-        background: var(--card-color);
+        height: 76px;
+        border-radius: 20px 20px 0 0;
+        background:
+            linear-gradient(var(--card-color) 0 7px, transparent 7px),
+            linear-gradient(90deg, color-mix(in srgb, var(--card-color) 28%, rgba(255, 255, 255, 0.78)) 0%, rgba(255, 255, 255, 0.9) 100%),
+            url("images/bannercentro.png") center 42% / cover no-repeat;
+        pointer-events: none;
     }
 
     .cardDestaquePortal::after,
@@ -568,7 +693,13 @@
         right: -42px;
         border-radius: 50%;
         background: var(--card-soft);
+        pointer-events: none;
         transition: transform 0.22s ease, opacity 0.22s ease;
+    }
+
+    .cardDestaquePortal > * {
+        position: relative;
+        z-index: 1;
     }
 
     .cardDestaquePortal:focus-visible,
@@ -872,6 +1003,38 @@
             margin-bottom: 64px;
         }
 
+        .secaoPortalEstrutura {
+            margin-bottom: 34px;
+        }
+
+        .feedbackPortal {
+            width: 90%;
+            grid-template-columns: 1fr;
+            margin-bottom: 64px;
+            border-radius: 16px;
+        }
+
+        .feedbackPortalPaisagem {
+            min-height: 54px;
+        }
+
+        .feedbackPortalConteudo {
+            align-items: flex-start;
+            flex-wrap: wrap;
+            padding: 14px;
+        }
+
+        .feedbackPortalBotao {
+            width: 100%;
+            margin-left: 52px;
+        }
+
+        .feedbackPortalSelo {
+            min-height: 52px;
+            border-top: 1px solid rgba(3, 76, 140, 0.1);
+            border-left: 0;
+        }
+
         .heroPortalAcoes {
             flex-direction: column;
         }
@@ -939,6 +1102,23 @@
 
         .cardDestaquePortal {
             min-height: 238px;
+        }
+
+        .feedbackPortalConteudo {
+            gap: 10px;
+            padding: 14px 12px;
+        }
+
+        .feedbackPortalTexto strong {
+            font-size: 13px;
+        }
+
+        .feedbackPortalTexto p {
+            font-size: 11px;
+        }
+
+        .feedbackPortalBotao {
+            margin-left: 0;
         }
 
         .cardDestaquePortal::after,
@@ -1287,6 +1467,22 @@
         </div>
     </section>
 
+    <section class="feedbackPortal" aria-label="Feedback sobre o portal">
+        <div class="feedbackPortalPaisagem" aria-hidden="true"></div>
+        <div class="feedbackPortalConteudo">
+            <span class="feedbackPortalIcone" aria-hidden="true"><span class="iconeLocal" style="--icon: url('imagens/icones/handshake.svg');"></span></span>
+            <div class="feedbackPortalTexto">
+                <strong>Sua opinião melhora o TRANSPARE</strong>
+                <p>Dê seu feedback, sugira melhorias e nos ajude a tornar a transparência cada vez mais útil para você.</p>
+            </div>
+            <a class="feedbackPortalBotao" href="404.html">
+                <span>Enviar feedback</span>
+                <span class="feedbackPortalBotaoIcone" aria-hidden="true"><span class="iconeLocal" style="--icon: url('imagens/icones/arrow-right.svg');"></span></span>
+            </a>
+        </div>
+        <div class="feedbackPortalSelo">Feito para você,<br>feito para todos.</div>
+    </section>
+
     <div class="secaoConsultasTematicas" id="consultas-tematicas">
         <h2>Buscar por assunto</h2>
         <div class="gridConsultasTematicas">
@@ -1541,4 +1737,3 @@
 </body>
 
 </html>
-
