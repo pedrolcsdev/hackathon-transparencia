@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="paginas-consulta.css">
 </head>
-<body class="paginaConsultaCompacta paginaReceitas" style="--pagina-cor: var(--ma-vermelho);">
+<body class="paginaConsultaCompacta paginaReceitas" style="--pagina-cor: var(--ma-azul);">
     <header class="cabecalhoPortalNovo">
         <div class="cabecalhoPortalNovoConteudo">
-            <button class="cabecalhoMenuBotao" type="button" aria-label="Abrir menu">
+            <button class="cabecalhoMenuBotao" type="button" id="menuLateralBotao" aria-expanded="false" aria-controls="menuLateralPainel" aria-label="Abrir menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -27,6 +27,31 @@
             </nav>
         </div>
     </header>
+    <div class="menuLateralOverlay" id="menuLateralOverlay"></div>
+    <aside class="menuLateral" id="menuLateralPainel" aria-hidden="true">
+        <button class="menuLateralFechar" type="button" id="menuLateralFechar" aria-label="Fechar menu">&times;</button>
+        <ul class="menuLateralLista">
+            <li class="menuLateralItem"><a href="index.html"><span class="iconeLocal" style="--icon:url('imagens/icones/building.svg');"></span>Início</a></li>
+            <li class="menuLateralItem menuLateralAgrupador">
+                <button class="menuLateralItem menuLateralToggle" type="button" data-menu-toggle aria-expanded="false">
+                    <span class="iconeLocal" style="--icon:url('imagens/icones/search.svg');"></span>Explore
+                    <span class="menuLateralSeta" aria-hidden="true"></span>
+                </button>
+                <ul class="menuLateralSublista">
+                    <li class="menuLateralItem"><a href="despesas.html"><span class="iconeLocal" style="--icon:url('imagens/icones/money.svg');"></span>Despesas públicas</a></li>
+                    <li class="menuLateralItem"><a href="receitas.html"><span class="iconeLocal" style="--icon:url('imagens/icones/chart-column.svg');"></span>Receitas públicas</a></li>
+                    <li class="menuLateralItem"><a href="recursos-humanos.html"><span class="iconeLocal" style="--icon:url('imagens/icones/users.svg');"></span>Servidores públicos</a></li>
+                    <li class="menuLateralItem"><a href="contratos-licitacoes.html"><span class="iconeLocal" style="--icon:url('imagens/icones/contract.svg');"></span>Contratos e licitações</a></li>
+                    <li class="menuLateralItem"><a href="404.html"><span class="iconeLocal" style="--icon:url('imagens/icones/chart-line.svg');"></span>Fique por dentro</a></li>
+                    <li class="menuLateralItem"><a href="404.html"><span class="iconeLocal" style="--icon:url('imagens/icones/signature.svg');"></span>Informações gerais</a></li>
+                    <li class="menuLateralItem"><a href="404.html"><span class="iconeLocal" style="--icon:url('imagens/icones/chart-column.svg');"></span>Dados abertos</a></li>
+                </ul>
+            </li>
+            <li class="menuLateralItem"><a href="404.html"><span class="iconeLocal" style="--icon:url('imagens/icones/handshake.svg');"></span>Feedbacks</a></li>
+            <li class="menuLateralItem"><a href="404.html"><span class="iconeLocal" style="--icon:url('imagens/icones/id-card.svg');"></span>E-Sic</a></li>
+            <li class="menuLateralItem"><a href="404.html"><span class="iconeLocal" style="--icon:url('imagens/icones/users.svg');"></span>E-Ouv</a></li>
+        </ul>
+    </aside>
 
     <main class="paginaConsulta">
         <section class="introConsulta">

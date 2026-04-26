@@ -1,3 +1,54 @@
+var menuBotao = document.getElementById('menuLateralBotao');
+var menuPainel = document.getElementById('menuLateralPainel');
+var menuOverlay = document.getElementById('menuLateralOverlay');
+var menuFechar = document.getElementById('menuLateralFechar');
+
+if (menuBotao && menuPainel && menuOverlay) {
+    function alternarMenuLateral(aberto) {
+        document.body.classList.toggle('menuLateralAberto', aberto);
+        menuBotao.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+        menuPainel.setAttribute('aria-hidden', aberto ? 'false' : 'true');
+    }
+
+    menuBotao.addEventListener('click', function() {
+        var aberto = menuBotao.getAttribute('aria-expanded') === 'true';
+        alternarMenuLateral(!aberto);
+    });
+
+    menuOverlay.addEventListener('click', function() {
+        alternarMenuLateral(false);
+    });
+
+    if (menuFechar) {
+        menuFechar.addEventListener('click', function() {
+            alternarMenuLateral(false);
+        });
+    }
+
+    menuPainel.querySelectorAll('[data-menu-toggle]').forEach(function(botaoToggle) {
+        botaoToggle.addEventListener('click', function() {
+            var grupo = botaoToggle.closest('.menuLateralAgrupador');
+            var aberto = botaoToggle.getAttribute('aria-expanded') === 'true';
+            botaoToggle.setAttribute('aria-expanded', aberto ? 'false' : 'true');
+            if (grupo) {
+                grupo.classList.toggle('is-open', !aberto);
+            }
+        });
+    });
+
+    menuPainel.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+            alternarMenuLateral(false);
+        });
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            alternarMenuLateral(false);
+        }
+    });
+}
+
 document.querySelectorAll('.ajudaTopico').forEach(function(ajuda) {
     ajuda.addEventListener('click', function(event) {
         event.preventDefault();

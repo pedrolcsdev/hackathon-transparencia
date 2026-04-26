@@ -108,12 +108,182 @@
         text-decoration: none;
         font-size: 16px;
         line-height: 1;
-        font-weight: 700;
+        font-weight: 600;
         transition: color 0.18s ease;
     }
 
     .cabecalhoNavegacao a:hover {
         color: var(--ma-azul);
+    }
+
+    .menuLateralOverlay {
+        position: fixed;
+        inset: 0;
+        z-index: 1300;
+        background: rgba(16, 42, 67, 0.28);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.24s ease;
+    }
+
+    .menuLateral {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1400;
+        width: min(320px, 86vw);
+        height: 100vh;
+        background:
+            linear-gradient(180deg, rgba(3, 76, 140, 0.08) 0%, rgba(3, 76, 140, 0.02) 26%, rgba(247, 248, 245, 0.96) 100%),
+            #ffffff;
+        border-right: 1px solid var(--ma-borda);
+        box-shadow: 0 16px 34px rgba(16, 42, 67, 0.14);
+        transform: translateX(-100%);
+        transition: transform 0.24s ease;
+        overflow-y: auto;
+    }
+
+    .menuLateral::before {
+        content: "";
+        position: sticky;
+        top: 0;
+        display: block;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(90deg, var(--ma-vermelho) 0 25%, var(--ma-azul) 25% 50%, var(--ma-verde) 50% 75%, var(--ma-amarelo) 75% 100%);
+    }
+
+    .menuLateralFechar {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 34px;
+        height: 34px;
+        border: 0;
+        border-radius: 8px;
+        background: rgba(16, 42, 67, 0.08);
+        color: var(--ma-texto);
+        font-size: 24px;
+        line-height: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.18s ease, color 0.18s ease;
+    }
+
+    .menuLateralFechar:hover,
+    .menuLateralFechar:focus-visible {
+        background: rgba(3, 76, 140, 0.14);
+        color: var(--ma-azul);
+        outline: none;
+    }
+
+    .menuLateralLista {
+        list-style: none;
+        margin: 0;
+        padding: 52px 12px 20px;
+        display: grid;
+        gap: 2px;
+    }
+
+    .menuLateralItem a,
+    .menuLateralToggle {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        min-height: 44px;
+        border-radius: 12px;
+        padding: 10px 12px;
+        color: var(--ma-texto);
+        text-decoration: none;
+        font-size: 17px;
+        font-weight: 600;
+        line-height: 1.2;
+        border: 1px solid transparent;
+        transition: background-color 0.18s ease, color 0.18s ease, transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .menuLateralToggle {
+        width: 100%;
+        font-family: inherit;
+        text-align: left;
+        cursor: pointer;
+        background: transparent;
+    }
+
+    .menuLateralSeta {
+        margin-left: auto;
+        width: 10px;
+        height: 10px;
+        border-right: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        transform: rotate(45deg);
+        transition: transform 0.2s ease;
+    }
+
+    .menuLateralAgrupador.is-open .menuLateralSeta {
+        transform: rotate(225deg);
+    }
+
+    .menuLateralSublista {
+        list-style: none;
+        margin: 0;
+        padding: 0 0 0 16px;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.26s ease, opacity 0.18s ease;
+    }
+
+    .menuLateralAgrupador.is-open .menuLateralSublista {
+        max-height: 520px;
+        opacity: 1;
+    }
+
+    .menuLateralItem a:hover,
+    .menuLateralItem a:focus-visible,
+    .menuLateralToggle:hover,
+    .menuLateralToggle:focus-visible {
+        background: rgba(3, 76, 140, 0.08);
+        color: var(--ma-azul);
+        transform: translateX(2px);
+        border-color: rgba(3, 76, 140, 0.18);
+        box-shadow: 0 8px 20px rgba(16, 42, 67, 0.08);
+    }
+
+    .menuLateralItem .iconeLocal {
+        color: color-mix(in srgb, var(--ma-azul) 65%, #7a8792);
+        font-size: 20px;
+    }
+
+    .menuLateralItem:nth-child(4n+1) .iconeLocal {
+        color: var(--ma-vermelho);
+    }
+
+    .menuLateralItem:nth-child(4n+2) .iconeLocal {
+        color: var(--ma-azul);
+    }
+
+    .menuLateralItem:nth-child(4n+3) .iconeLocal {
+        color: var(--ma-verde);
+    }
+
+    .menuLateralItem:nth-child(4n) .iconeLocal {
+        color: var(--ma-amarelo);
+    }
+
+    body.menuLateralAberto .menuLateralOverlay {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    body.menuLateralAberto .menuLateral {
+        transform: translateX(0);
+    }
+
+    body.menuLateralAberto {
+        overflow: hidden;
     }
 
     .rodapeCompacto {
@@ -208,9 +378,10 @@
         width: 1em;
         height: 1em;
         display: inline-block;
-        background: currentColor;
-        -webkit-mask: var(--icon) center / contain no-repeat;
-        mask: var(--icon) center / contain no-repeat;
+        background-image: var(--icon);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
         flex: 0 0 auto;
     }
 
@@ -443,6 +614,7 @@
     .iconeDestaquePortal .iconeLocal,
     .iconeTemaPortal .iconeLocal {
         font-size: 28px;
+        filter: brightness(0) invert(1);
     }
 
     .cardDestaquePortal h3,
@@ -580,6 +752,7 @@
     .setaCardPortal .iconeLocal,
     .setaTemaPortal .iconeLocal {
         font-size: 20px;
+        filter: brightness(0) invert(1);
     }
 
     .setaTemaPortal:focus-visible,
@@ -744,6 +917,10 @@
         .cabecalhoNavegacao {
             display: none;
         }
+
+        .menuLateralItem a {
+            font-size: clamp(15px, 4vw, 17px);
+        }
     }
 
     @media (min-width: 360px) and (max-width: 639px) {
@@ -843,7 +1020,7 @@
     <div class='pagina'>
         <header class="cabecalhoPortalNovo">
             <div class="cabecalhoPortalNovoConteudo">
-                <button class="cabecalhoMenuBotao" type="button">
+                <button class="cabecalhoMenuBotao" type="button" id="menuLateralBotao" aria-expanded="false" aria-controls="menuLateralPainel" aria-label="Abrir menu">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -859,6 +1036,31 @@
                 </nav>
             </div>
         </header>
+        <div class="menuLateralOverlay" id="menuLateralOverlay"></div>
+        <aside class="menuLateral" id="menuLateralPainel" aria-hidden="true">
+            <button class="menuLateralFechar" type="button" id="menuLateralFechar" aria-label="Fechar menu">&times;</button>
+            <ul class="menuLateralLista">
+                <li class="menuLateralItem"><a href="index.html"><span class="iconeLocal" style="--icon:url('imagens/icones/building.svg');"></span>Início</a></li>
+                <li class="menuLateralItem menuLateralAgrupador">
+                    <button class="menuLateralItem menuLateralToggle" type="button" data-menu-toggle aria-expanded="false">
+                        <span class="iconeLocal" style="--icon:url('imagens/icones/search.svg');"></span>Explore
+                        <span class="menuLateralSeta" aria-hidden="true"></span>
+                    </button>
+                    <ul class="menuLateralSublista">
+                        <li class="menuLateralItem"><a href="despesas.html"><span class="iconeLocal" style="--icon:url('imagens/icones/money.svg');"></span>Despesas públicas</a></li>
+                        <li class="menuLateralItem"><a href="receitas.html"><span class="iconeLocal" style="--icon:url('imagens/icones/chart-column.svg');"></span>Receitas públicas</a></li>
+                        <li class="menuLateralItem"><a href="recursos-humanos.html"><span class="iconeLocal" style="--icon:url('imagens/icones/users.svg');"></span>Servidores públicos</a></li>
+                        <li class="menuLateralItem"><a href="contratos-licitacoes.html"><span class="iconeLocal" style="--icon:url('imagens/icones/contract.svg');"></span>Contratos e licitações</a></li>
+                        <li class="menuLateralItem"><a href="404.html"><span class="iconeLocal" style="--icon:url('imagens/icones/chart-line.svg');"></span>Fique por dentro</a></li>
+                        <li class="menuLateralItem"><a href="404.html"><span class="iconeLocal" style="--icon:url('imagens/icones/signature.svg');"></span>Informações gerais</a></li>
+                        <li class="menuLateralItem"><a href="404.html"><span class="iconeLocal" style="--icon:url('imagens/icones/chart-column.svg');"></span>Dados abertos</a></li>
+                    </ul>
+                </li>
+                <li class="menuLateralItem"><a href="404.html"><span class="iconeLocal" style="--icon:url('imagens/icones/handshake.svg');"></span>Feedbacks</a></li>
+                <li class="menuLateralItem"><a href="404.html"><span class="iconeLocal" style="--icon:url('imagens/icones/id-card.svg');"></span>E-Sic</a></li>
+                <li class="menuLateralItem"><a href="404.html"><span class="iconeLocal" style="--icon:url('imagens/icones/users.svg');"></span>E-Ouv</a></li>
+            </ul>
+        </aside>
 
 <main style="overflow: hidden;">
     <section class="heroPortal" id="jornadas">
@@ -1227,6 +1429,61 @@
 </div>
 </div>
 <script>
+    (function() {
+        const menuBotao = document.getElementById('menuLateralBotao');
+        const menuPainel = document.getElementById('menuLateralPainel');
+        const menuOverlay = document.getElementById('menuLateralOverlay');
+        const menuFechar = document.getElementById('menuLateralFechar');
+
+        if (!menuBotao || !menuPainel || !menuOverlay) {
+            return;
+        }
+
+        function alternarMenu(aberto) {
+            document.body.classList.toggle('menuLateralAberto', aberto);
+            menuBotao.setAttribute('aria-expanded', aberto ? 'true' : 'false');
+            menuPainel.setAttribute('aria-hidden', aberto ? 'false' : 'true');
+        }
+
+        menuBotao.addEventListener('click', function() {
+            const aberto = menuBotao.getAttribute('aria-expanded') === 'true';
+            alternarMenu(!aberto);
+        });
+
+        menuOverlay.addEventListener('click', function() {
+            alternarMenu(false);
+        });
+
+        if (menuFechar) {
+            menuFechar.addEventListener('click', function() {
+                alternarMenu(false);
+            });
+        }
+
+        menuPainel.querySelectorAll('[data-menu-toggle]').forEach(function(botaoToggle) {
+            botaoToggle.addEventListener('click', function() {
+                var grupo = botaoToggle.closest('.menuLateralAgrupador');
+                var aberto = botaoToggle.getAttribute('aria-expanded') === 'true';
+                botaoToggle.setAttribute('aria-expanded', aberto ? 'false' : 'true');
+                if (grupo) {
+                    grupo.classList.toggle('is-open', !aberto);
+                }
+            });
+        });
+
+        menuPainel.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                alternarMenu(false);
+            });
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                alternarMenu(false);
+            }
+        });
+    })();
+
     function to_position(selector) {
         const target = document.querySelector(selector);
         if (target) {
