@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contratos e licitações - Portal da Transparência</title>
+    <link rel="shortcut icon" href="https://transparencia.ma.gov.br/theme-wp/assets/images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="paginas-consulta.css">
+</head>
+<body style="--pagina-cor: var(--ma-laranja);">
+    <header class="cabecalhoPortalNovo">
+        <div class="cabecalhoPortalNovoConteudo">
+            <button class="cabecalhoMenuBotao" type="button" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a class="cabecalhoLogo" href="index.html">
+                <img src="images/logoportal.png" alt="Portal da Transparência do Governo do Maranhão">
+            </a>
+            <nav class="cabecalhoNavegacao" aria-label="Navegação principal">
+                <a href="index.html#jornadas">Comece aqui</a>
+                <a href="index.html#pesquisar">Buscar no portal</a>
+                <a href="index.html#consultas-tematicas">Buscar por assunto</a>
+                <a href="404.html">Dados abertos</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="paginaConsulta">
+        <section class="heroConsulta">
+            <a class="voltarLink" href="index.html"><i class="fa-solid fa-arrow-left"></i> Voltar para o início</a>
+            <span class="heroConsultaTag"><i class="fa-solid fa-file-signature"></i> Dados públicos</span>
+            <h1>Contratos e licitações</h1>
+            <p>Veja compras do governo, contratos, fornecedores e processos de escolha.</p>
+        </section>
+
+        <section class="resumoGrid" aria-label="Resumo de contratos e licitações">
+            <article class="resumoCard"><span>Contratos em vigor <span class="ajudaTopico" tabindex="0" aria-label="O que são contratos em vigor?" data-ajuda="Contratos que ainda estão valendo ou em execução."><i class="fa-solid fa-question"></i></span></span><strong>12.847</strong></article>
+            <article class="resumoCard"><span>Licitações <span class="ajudaTopico" tabindex="0" aria-label="O que são licitações?" data-ajuda="Processos usados para escolher quem vai vender algo ao governo."><i class="fa-solid fa-question"></i></span></span><strong>3.216</strong></article>
+            <article class="resumoCard"><span>Fornecedores <span class="ajudaTopico" tabindex="0" aria-label="O que são fornecedores?" data-ajuda="Empresas ou pessoas que vendem produtos ou serviços ao governo."><i class="fa-solid fa-question"></i></span></span><strong>8.904</strong></article>
+            <article class="resumoCard"><span>Total contratado <span class="ajudaTopico" tabindex="0" aria-label="O que é total contratado?" data-ajuda="Valor total previsto nos contratos assinados."><i class="fa-solid fa-question"></i></span></span><strong>R$ 6,2 bi</strong></article>
+        </section>
+
+        <section class="painelConsulta">
+            <div class="secaoTitulo"><div><h2>Buscar contratos</h2><p>Use os filtros para encontrar contratos por fornecedor, tipo ou situação.</p></div></div>
+            <form class="filtrosConsulta">
+                <div class="campoConsulta"><label for="busca-contrato">Fornecedor ou objeto <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre fornecedor ou objeto" data-ajuda="Busque pelo nome da empresa ou pelo que foi comprado ou contratado."><i class="fa-solid fa-question"></i></span></label><input id="busca-contrato" type="search" placeholder="Ex.: merenda, transporte, empresa"></div>
+                <div class="campoConsulta"><label for="modalidade-contrato">Tipo de compra <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre tipo de compra" data-ajuda="Mostra como o governo fez a compra ou contratação."><i class="fa-solid fa-question"></i></span></label><select id="modalidade-contrato"><option>Todas</option><option>Pregão</option><option>Concorrência</option><option>Dispensa</option></select></div>
+                <div class="campoConsulta"><label for="situacao-contrato">Situação <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre situação" data-ajuda="Mostra se o contrato ou processo está ativo, encerrado ou em andamento."><i class="fa-solid fa-question"></i></span></label><select id="situacao-contrato"><option>Todas</option><option>Ativo</option><option>Encerrado</option><option>Em andamento</option></select></div>
+                <button class="botaoConsulta" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+            </form>
+            <div class="dadosGrid">
+                <div class="linhaTabela"><strong>Contrato de manutenção de prédios</strong><span>Secretaria de Administração</span><span class="statusConsulta">Ativo</span></div>
+                <div class="linhaTabela"><strong>Compra de equipamentos</strong><span>Secretaria de Saúde</span><span class="statusConsulta">Em andamento</span></div>
+                <div class="linhaTabela"><strong>Serviços de transporte</strong><span>Secretaria de Educação</span><span class="statusConsulta">Publicado</span></div>
+            </div>
+        </section>
+
+        <section class="painelConsulta">
+            <div class="secaoTitulo"><div><h2>Mais opções</h2><p>Acesse outros caminhos para ver compras públicas.</p></div></div>
+            <div class="atalhosGrid">
+                <a class="atalhoConsulta" href="#busca-contrato"><span class="atalhoIcone"><i class="fa-solid fa-file-contract"></i></span><h3>Contratos <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre contratos" data-ajuda="Acordos assinados entre o governo e fornecedores."><i class="fa-solid fa-question"></i></span></h3><p>Veja prazos, valores e o que foi contratado.</p></a>
+                <a class="atalhoConsulta" href="#busca-contrato"><span class="atalhoIcone"><i class="fa-solid fa-gavel"></i></span><h3>Licitações <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre licitações" data-ajuda="Disputas públicas para escolher a melhor proposta de compra ou serviço."><i class="fa-solid fa-question"></i></span></h3><p>Acompanhe editais, tipos de compra e etapas do processo.</p></a>
+                <a class="atalhoConsulta" href="#busca-contrato"><span class="atalhoIcone"><i class="fa-solid fa-building"></i></span><h3>Fornecedores <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre fornecedores" data-ajuda="Quem vende produtos, obras ou serviços ao governo."><i class="fa-solid fa-question"></i></span></h3><p>Busque empresas contratadas pelo governo.</p></a>
+            </div>
+        </section>
+    </main>
+    <script src="paginas-consulta.js"></script>
+</body>
+</html>

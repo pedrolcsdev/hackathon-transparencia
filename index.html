@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <link rel="shortcut icon" href="images/favicon.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#6777ef" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+
+
+    <title>Portal da Transparência - Início</title>
+</head>
+<style>
+    :root {
+        --ma-vermelho: #F21326;
+        --ma-azul: #034C8C;
+        --ma-verde: #03A62C;
+        --ma-amarelo: #F29F05;
+        --ma-laranja: #F27405;
+        --ma-texto: #102a43;
+        --ma-texto-suave: #52616f;
+        --ma-fundo: #f7f8f5;
+        --ma-borda: rgba(3, 76, 140, 0.14);
+        --ma-sombra: 0 14px 34px rgba(16, 42, 67, 0.1);
+        --ma-sombra-forte: 0 24px 54px rgba(16, 42, 67, 0.18);
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+        color: var(--ma-texto);
+        background: var(--ma-fundo);
+    }
+
+    .cabecalhoPortalNovo {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        width: 100%;
+        height: 75px;
+        background: #fff;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    .cabecalhoPortalNovoConteudo {
+        width: min(1630px, 86%);
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .cabecalhoMenuBotao {
+        width: 34px;
+        height: 34px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        cursor: pointer;
+        flex: 0 0 auto;
+    }
+
+    .cabecalhoMenuBotao span {
+        display: block;
+        width: 30px;
+        height: 3px;
+        background: #111;
+    }
+
+    .cabecalhoLogo {
+        margin-left: clamp(80px, 12vw, 218px);
+        display: inline-flex;
+        align-items: center;
+        flex: 0 0 auto;
+    }
+
+    .cabecalhoLogo img {
+        display: block;
+        width: 158px;
+        height: auto;
+    }
+
+    .cabecalhoNavegacao {
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        gap: clamp(28px, 3.2vw, 58px);
+        white-space: nowrap;
+    }
+
+    .cabecalhoNavegacao a {
+        color: #000;
+        text-decoration: none;
+        font-size: 16px;
+        line-height: 1;
+        font-weight: 700;
+        transition: color 0.18s ease;
+    }
+
+    .cabecalhoNavegacao a:hover {
+        color: var(--ma-azul);
+    }
+
+    .rodapeCompacto {
+        background: #082f55;
+        color: #ffffff;
+        padding: 42px 0 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .rodapeCompacto a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .rodapeCompacto a:hover {
+        color: var(--ma-amarelo);
+    }
+
+    .rodapeCompactoConteudo {
+        width: min(1220px, 88%);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1.3fr repeat(3, 1fr);
+        gap: 56px;
+        align-items: start;
+    }
+
+    .rodapeCompactoMarca h2 {
+        font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+        font-size: 22px;
+        line-height: 1.2;
+        margin: 0 0 14px;
+        color: #fff;
+    }
+
+    .rodapeCompactoMarca p,
+    .rodapeCompactoLegal {
+        color: rgba(255, 255, 255, 0.76);
+        font-size: 14px;
+        line-height: 1.55;
+        margin: 0;
+    }
+
+    .rodapeCompactoGrupo h3 {
+        color: var(--ma-amarelo);
+        font-size: 12px;
+        line-height: 1;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin: 0 0 16px;
+    }
+
+    .rodapeCompactoGrupo ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 11px;
+    }
+
+    .rodapeCompactoGrupo a {
+        display: inline-block;
+        font-size: 14px;
+        line-height: 1.3;
+        transition: color 0.18s ease, transform 0.18s ease;
+    }
+
+    .rodapeCompactoGrupo a:hover {
+        transform: translateX(3px);
+    }
+
+    .rodapeCompactoBase {
+        width: min(1220px, 88%);
+        margin: 34px auto 0;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .rodapeTopo {
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .iconeLocal {
+        width: 1em;
+        height: 1em;
+        display: inline-block;
+        background: currentColor;
+        -webkit-mask: var(--icon) center / contain no-repeat;
+        mask: var(--icon) center / contain no-repeat;
+        flex: 0 0 auto;
+    }
+
+    .secaoPortalEstrutura,
+    .secaoConsultasTematicas {
+        width: min(1120px, 90%);
+        margin: 0 auto 76px;
+    }
+
+    .heroPortal {
+        position: relative;
+        min-height: 500px;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        background: var(--ma-azul);
+    }
+
+    .heroPortal::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+            linear-gradient(115deg, rgba(3, 76, 140, 0.94) 0%, rgba(3, 76, 140, 0.86) 48%, rgba(242, 19, 38, 0.7) 100%),
+            url("images/fotocentrohistorico.jpg") center/cover no-repeat;
+    }
+
+    .heroPortal::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 8px;
+        background: linear-gradient(90deg, var(--ma-vermelho) 0 20%, var(--ma-azul) 20% 40%, var(--ma-verde) 40% 60%, var(--ma-amarelo) 60% 80%, var(--ma-laranja) 80% 100%);
+    }
+
+    .heroPortalConteudo {
+        position: relative;
+        z-index: 1;
+        width: min(1120px, 90%);
+        margin: 0 auto;
+        padding: 132px 0 86px;
+        color: #fff;
+    }
+
+    .heroPortalTexto {
+        max-width: 860px;
+    }
+
+    .heroPortalTexto h1 {
+        font-size: clamp(34px, 5vw, 60px);
+        line-height: 1.05;
+        margin-bottom: 18px;
+        color: #fff;
+    }
+
+    .heroPortalTexto p {
+        font-size: 18px;
+        line-height: 1.7;
+        max-width: 700px;
+        margin-bottom: 28px;
+    }
+
+    .heroPortalAcoes {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+    }
+
+    .heroPortalAcoes a {
+        text-decoration: none;
+        padding: 14px 24px;
+        border-radius: 12px;
+        font-weight: 600;
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .heroPortalAcoes a:hover,
+    .heroPortalAcoes a:focus-visible {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16);
+    }
+
+    .botaoPrimarioPortal {
+        background: var(--ma-amarelo);
+        color: #17212b;
+    }
+
+    .botaoSecundarioPortal {
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.32);
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .secaoPortalEstrutura h2,
+    .secaoConsultasTematicas h2 {
+        color: var(--ma-azul);
+        margin-bottom: 10px;
+    }
+
+    .secaoPortalEstruturaCabecalho {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        align-items: end;
+        margin-bottom: 28px;
+    }
+
+    .secaoPortalEstruturaCabecalho p,
+    .secaoConsultasTematicas > p {
+        max-width: 860px;
+        margin-bottom: 0;
+        color: var(--ma-texto-suave);
+    }
+
+    .gridDestaquesPortal {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .cardDestaquePortal,
+    .cardConsultaTematica {
+        background: #ffffff;
+        border-radius: 20px;
+        border: 1px solid var(--ma-borda);
+        box-shadow: var(--ma-sombra);
+    }
+
+    .cardDestaquePortal {
+        --card-color: var(--ma-azul);
+        --card-soft: rgba(3, 76, 140, 0.1);
+        position: relative;
+        overflow: hidden;
+        padding: 24px;
+        min-height: 260px;
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+    }
+
+    .cardDestaquePortal:nth-child(1) {
+        --card-color: var(--ma-vermelho);
+        --card-soft: rgba(242, 19, 38, 0.1);
+    }
+
+    .cardDestaquePortal:nth-child(2) {
+        --card-color: var(--ma-azul);
+        --card-soft: rgba(3, 76, 140, 0.1);
+    }
+
+    .cardDestaquePortal:nth-child(3) {
+        --card-color: var(--ma-verde);
+        --card-soft: rgba(3, 166, 44, 0.12);
+    }
+
+    .cardDestaquePortal:nth-child(4) {
+        --card-color: var(--ma-laranja);
+        --card-soft: rgba(242, 116, 5, 0.12);
+    }
+
+    .cardDestaquePortal::before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto;
+        height: 5px;
+        background: var(--card-color);
+    }
+
+    .cardDestaquePortal::after,
+    .cardConsultaTematica::after {
+        content: "";
+        position: absolute;
+        width: 140px;
+        height: 140px;
+        top: -42px;
+        right: -42px;
+        border-radius: 50%;
+        background: var(--card-soft);
+        transition: transform 0.22s ease, opacity 0.22s ease;
+    }
+
+    .cardDestaquePortal:focus-visible,
+    .cardConsultaTematica:focus-within {
+        outline: 3px solid rgba(242, 159, 5, 0.72);
+        outline-offset: 4px;
+    }
+
+    .cardDestaquePortal:hover,
+    .cardDestaquePortal:focus-visible,
+    .cardDestaquePortal:active,
+    .cardConsultaTematica:hover,
+    .cardConsultaTematica:focus-within,
+    .cardConsultaTematica:active {
+        transform: translateY(-4px) scale(1.015);
+        box-shadow: var(--ma-sombra-forte);
+        border-color: color-mix(in srgb, var(--card-color) 42%, white);
+    }
+
+    .cardDestaquePortal:hover::after,
+    .cardDestaquePortal:focus-visible::after,
+    .cardConsultaTematica:hover::after,
+    .cardConsultaTematica:focus-within::after {
+        transform: scale(1.2);
+    }
+
+    .iconeDestaquePortal {
+        width: 62px;
+        height: 62px;
+        border-radius: 16px;
+        background: var(--card-color);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 18px;
+        color: #fff;
+        font-size: 24px;
+        box-shadow: 0 12px 24px color-mix(in srgb, var(--card-color) 26%, transparent);
+        position: relative;
+        z-index: 1;
+    }
+
+    .iconeDestaquePortal .iconeLocal,
+    .iconeTemaPortal .iconeLocal {
+        font-size: 28px;
+    }
+
+    .cardDestaquePortal h3,
+    .cardConsultaTematica h4 {
+        color: var(--ma-texto);
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .cardDestaquePortal p,
+    .cardConsultaTematica p {
+        color: var(--ma-texto-suave);
+        margin-bottom: 0;
+        line-height: 1.65;
+        position: relative;
+        z-index: 1;
+    }
+
+    .acaoCardPortal {
+        margin-top: auto;
+        padding-top: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+        color: var(--card-color);
+        font-weight: 700;
+        position: relative;
+        z-index: 1;
+    }
+
+    .setaCardPortal,
+    .setaTemaPortal {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--card-color);
+        color: #fff;
+        flex: 0 0 auto;
+        transition: transform 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .cardDestaquePortal:hover .setaCardPortal,
+    .cardDestaquePortal:focus-visible .setaCardPortal,
+    .cardConsultaTematica:hover .setaTemaPortal,
+    .cardConsultaTematica:focus-within .setaTemaPortal {
+        transform: translateX(4px);
+        box-shadow: 0 12px 24px color-mix(in srgb, var(--card-color) 28%, transparent);
+    }
+
+    .gridConsultasTematicas {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-top: 36px;
+    }
+
+    .cardConsultaTematica {
+        --card-color: var(--ma-azul);
+        --card-soft: rgba(3, 76, 140, 0.1);
+        position: relative;
+        overflow: hidden;
+        padding: 24px;
+        transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+    }
+
+    .cardConsultaTematica:nth-child(1) {
+        --card-color: var(--ma-vermelho);
+        --card-soft: rgba(242, 19, 38, 0.1);
+    }
+
+    .cardConsultaTematica:nth-child(2) {
+        --card-color: var(--ma-amarelo);
+        --card-soft: rgba(242, 159, 5, 0.14);
+    }
+
+    .cardConsultaTematica:nth-child(3) {
+        --card-color: var(--ma-azul);
+        --card-soft: rgba(3, 76, 140, 0.1);
+    }
+
+    .cardConsultaTematica:nth-child(4) {
+        --card-color: var(--ma-laranja);
+        --card-soft: rgba(242, 116, 5, 0.12);
+    }
+
+    .cardConsultaTematica:nth-child(5) {
+        --card-color: var(--ma-verde);
+        --card-soft: rgba(3, 166, 44, 0.12);
+    }
+
+    .cardConsultaTematica:nth-child(6) {
+        --card-color: var(--ma-azul);
+        --card-soft: rgba(3, 76, 140, 0.1);
+    }
+
+    .cardConsultaTematica:hover,
+    .cardConsultaTematica:focus-within,
+    .cardConsultaTematica:active {
+        background: linear-gradient(145deg, #fff 0%, #fff 46%, var(--card-soft) 100%);
+    }
+
+    .temaCardCabecalho {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        align-items: flex-start;
+        margin-bottom: 18px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .iconeTemaPortal {
+        width: 56px;
+        height: 56px;
+        border-radius: 16px;
+        background: var(--card-color);
+        color: #fff;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        box-shadow: 0 12px 24px color-mix(in srgb, var(--card-color) 24%, transparent);
+    }
+
+    .setaTemaPortal {
+        text-decoration: none;
+        opacity: 0.88;
+    }
+
+    .setaCardPortal .iconeLocal,
+    .setaTemaPortal .iconeLocal {
+        font-size: 20px;
+    }
+
+    .setaTemaPortal:focus-visible,
+    .cardConsultaTematicaLinks a:focus-visible {
+        outline: 3px solid rgba(242, 159, 5, 0.72);
+        outline-offset: 3px;
+    }
+
+    .cardConsultaTematicaLinks {
+        display: grid;
+        gap: 10px;
+        margin-top: 18px;
+    }
+
+    .cardConsultaTematicaLinks a {
+        color: var(--ma-azul);
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .cardConsultaTematicaLinks a {
+        min-height: 44px;
+        border-radius: 12px;
+        border: 1px solid rgba(3, 76, 140, 0.12);
+        background: rgba(255, 255, 255, 0.72);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 10px 12px;
+        transition: color 0.18s ease, border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+    }
+
+    .cardConsultaTematicaLinks a::after {
+        content: ">";
+        font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        color: var(--card-color);
+        font-size: 13px;
+    }
+
+    .cardConsultaTematicaLinks a:hover,
+    .cardConsultaTematicaLinks a:focus-visible {
+        background: #fff;
+        border-color: color-mix(in srgb, var(--card-color) 38%, white);
+        color: var(--card-color);
+        transform: translateX(2px);
+        text-decoration: none;
+    }
+
+    @media (max-width: 1024px) {
+        .heroPortalConteudo,
+        .secaoPortalEstrutura,
+        .secaoConsultasTematicas {
+            width: 90%;
+        }
+
+        .rodapeCompactoConteudo {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 34px;
+        }
+
+        .rodapeCompactoMarca {
+            grid-column: 1 / -1;
+        }
+
+        .cabecalhoPortalNovoConteudo {
+            width: 90%;
+        }
+
+        .cabecalhoLogo {
+            margin-left: clamp(32px, 8vw, 86px);
+        }
+
+        .cabecalhoNavegacao {
+            gap: 24px;
+        }
+
+        .cabecalhoNavegacao a {
+            font-size: 14px;
+        }
+    }
+
+    @media (min-width: 640px) {
+        .gridDestaquesPortal,
+        .gridConsultasTematicas {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (min-width: 1080px) {
+        .gridDestaquesPortal {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .gridConsultasTematicas {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 768px) {
+        .heroPortal {
+            min-height: auto;
+        }
+
+        .heroPortalConteudo {
+            padding: 118px 0 66px;
+        }
+
+        .secaoPortalEstruturaCabecalho {
+            display: block;
+        }
+
+        .secaoPortalEstrutura,
+        .secaoConsultasTematicas {
+            width: 90%;
+            margin-bottom: 64px;
+        }
+
+        .heroPortalAcoes {
+            flex-direction: column;
+        }
+
+        .heroPortalAcoes a {
+            width: 100%;
+            min-height: 52px;
+        }
+
+        .cardDestaquePortal,
+        .cardConsultaTematica {
+            border-radius: 18px;
+            padding: 22px;
+        }
+
+        .rodapeCompacto {
+            padding: 34px 0 24px;
+        }
+
+        .rodapeCompactoConteudo {
+            grid-template-columns: 1fr;
+            gap: 28px;
+        }
+
+        .rodapeCompactoBase {
+            align-items: flex-start;
+            flex-direction: column;
+        }
+
+        .cabecalhoPortalNovo {
+            height: 72px;
+        }
+
+        .cabecalhoLogo {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cabecalhoLogo img {
+            width: 146px;
+        }
+
+        .cabecalhoNavegacao {
+            display: none;
+        }
+    }
+
+    @media (min-width: 360px) and (max-width: 639px) {
+        .gridDestaquesPortal,
+        .gridConsultasTematicas {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .cardDestaquePortal,
+        .cardConsultaTematica {
+            min-width: 0;
+            padding: 16px;
+            border-radius: 16px;
+        }
+
+        .cardDestaquePortal {
+            min-height: 238px;
+        }
+
+        .cardDestaquePortal::after,
+        .cardConsultaTematica::after {
+            width: 96px;
+            height: 96px;
+            top: -34px;
+            right: -34px;
+        }
+
+        .iconeDestaquePortal,
+        .iconeTemaPortal {
+            width: 46px;
+            height: 46px;
+            border-radius: 13px;
+            margin-bottom: 14px;
+        }
+
+        .iconeDestaquePortal .iconeLocal,
+        .iconeTemaPortal .iconeLocal {
+            font-size: 22px;
+        }
+
+        .cardDestaquePortal h3,
+        .cardConsultaTematica h4 {
+            font-size: 15px;
+            line-height: 1.25;
+            margin-bottom: 8px;
+        }
+
+        .cardDestaquePortal p,
+        .cardConsultaTematica p {
+            font-size: 13px;
+            line-height: 1.45;
+        }
+
+        .acaoCardPortal {
+            gap: 8px;
+            padding-top: 16px;
+            font-size: 13px;
+        }
+
+        .setaCardPortal,
+        .setaTemaPortal {
+            width: 36px;
+            height: 36px;
+        }
+
+        .setaCardPortal .iconeLocal,
+        .setaTemaPortal .iconeLocal {
+            font-size: 17px;
+        }
+
+        .temaCardCabecalho {
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .cardConsultaTematicaLinks {
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        .cardConsultaTematicaLinks a {
+            min-height: 38px;
+            padding: 8px 10px;
+            font-size: 12px;
+            line-height: 1.2;
+        }
+    }
+</style>
+
+
+<body>
+
+
+
+
+    <div class='pagina'>
+        <header class="cabecalhoPortalNovo">
+            <div class="cabecalhoPortalNovoConteudo">
+                <button class="cabecalhoMenuBotao" type="button">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <a class="cabecalhoLogo" href="index.html">
+                    <img src="images/logoportal.png" alt="Portal da Transparência do Governo do Maranhão">
+                </a>
+                <nav class="cabecalhoNavegacao">
+                    <a href="#jornadas">Comece aqui</a>
+                    <a href="#pesquisar" onclick="to_position('.secaoBuscaNova')">Buscar no portal</a>
+                    <a href="#consultas-tematicas">Buscar por assunto</a>
+                    <a href="404.html">Dados abertos</a>
+                </nav>
+            </div>
+        </header>
+
+<main style="overflow: hidden;">
+    <section class="heroPortal" id="jornadas">
+        <div class="heroPortalConteudo">
+            <div class="heroPortalTexto">
+                <h1>Informações públicas em um só lugar</h1>
+                <p>Veja receitas, despesas, contratos e dados do Governo do Maranhão de forma simples.</p>
+                <div class="heroPortalAcoes">
+                    <a class="botaoPrimarioPortal" href="despesas.html">Acessar dados</a>
+                    <a class="botaoSecundarioPortal" href="404.html">Ver guia</a>
+                    <a class="botaoSecundarioPortal" href="#pesquisar" onclick="to_position('.secaoBuscaNova')" style="cursor:pointer;">Buscar no portal</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        .secaoBuscaNova {
+            padding: 52px 0 44px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #fff;
+        }
+
+        .buscaWrap {
+            width: min(680px, 90%);
+            display: flex;
+            align-items: center;
+            gap: 0;
+            background: #fff;
+            border: 2px solid var(--ma-azul);
+            border-radius: 50px;
+            box-shadow: 0 6px 32px rgba(0, 122, 194, 0.18);
+            overflow: hidden;
+            transition: box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .buscaWrap:focus-within {
+            border-color: var(--ma-verde);
+            box-shadow: 0 8px 40px rgba(3, 76, 140, 0.22);
+        }
+
+        .buscaWrap input[type="text"] {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 16px 22px;
+            font-size: 16px;
+            background: transparent;
+            color: #1a2e3b;
+            font-family: inherit;
+        }
+
+        .buscaWrap input[type="text"]::placeholder {
+            color: #9ab0bf;
+        }
+
+        .buscaWrap button {
+            border: none;
+            background: var(--ma-azul);
+            cursor: pointer;
+            padding: 0 22px;
+            height: 54px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .buscaWrap button:hover {
+            background: var(--ma-vermelho);
+        }
+
+        .buscaWrap button img {
+            width: 22px;
+            height: 22px;
+            filter: brightness(0) invert(1);
+        }
+
+        .maisPesquisadosWrap {
+            margin-top: 22px;
+            width: min(680px, 90%);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .maisPesquisadosLabel {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #8aa0ae;
+            margin: 0;
+        }
+
+        .maisPesquisadosPills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .maisPesquisadosPill {
+            display: inline-flex;
+            align-items: center;
+            font-family: inherit;
+            padding: 7px 16px;
+            border-radius: 999px;
+            background: #f0f6fb;
+            border: 1px solid rgba(0, 122, 194, 0.18);
+            color: var(--ma-azul);
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .maisPesquisadosPill:hover {
+            background: var(--ma-azul);
+            border-color: var(--ma-azul);
+            color: #fff;
+            transform: translateY(-1px);
+        }
+    </style>
+
+    <div class="secaoBuscaNova" id="pesquisar">
+        <div class="buscaWrap">
+            <form id="buscaHomeForm" action="404.html" method="get" style="width:100%;display:flex;align-items:center;">
+                <input type="text" id="query" name="query" placeholder="Digite o que você quer encontrar" required>
+                <input type="hidden" name="tipo" id="tipo-selecionado">
+                <input type="hidden" value="atual" name="categoria_busca" id="categoria_busca">
+                <button alt="Buscar" title="Buscar" id="butaoParaBuscaHome" type="submit">
+                    <span class="iconeLocal" style="--icon: url('imagens/icones/search.svg');"></span>
+                </button>
+            </form>
+        </div>
+        <div class="maisPesquisadosWrap" aria-label="Assuntos mais buscados">
+            <p class="maisPesquisadosLabel">Mais pesquisados</p>
+            <div class="maisPesquisadosPills">
+                <button class="maisPesquisadosPill" type="button" data-search-topic="Despesas">Despesas</button>
+                <button class="maisPesquisadosPill" type="button" data-search-topic="Como navegar no portal?">Como navegar no portal?</button>
+                <button class="maisPesquisadosPill" type="button" data-search-topic="Salário de servidores">Salário de servidores</button>
+                <button class="maisPesquisadosPill" type="button" data-search-topic="Contratações">Contratações</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        var raw = document.getElementById('buscados');
+        if (!raw) return;
+        try {
+            var items = JSON.parse(raw.value);
+            items.sort(function(a, b) { return b.value - a.value; });
+            var top = items.slice(0, 8);
+            var container = document.getElementById('pillsMaisPesquisados');
+            if (!container) return;
+            top.forEach(function(item) {
+                var a = document.createElement('a');
+                var href = '404.html';
+                a.href = href;
+                a.className = 'maisPesquisadosPill';
+                a.textContent = item.x;
+                container.appendChild(a);
+            });
+        } catch(e) {}
+    })();
+    </script>
+
+    <!-- manter div antigo oculto para não quebrar scripts que dependem dele -->
+    <div style="display:none;">
+        <div class="containerBusca"><div class="barraEmbaixoDaBuscaHome"></div></div>
+        <div class="containerNuvemPalavras"><p class="textoTermosMaisProcurados"></p><div id="container"></div></div>
+    </div>
+
+    <section class="secaoPortalEstrutura">
+        <div class="secaoPortalEstruturaCabecalho">
+            <div>
+                <h2>Principais consultas</h2>
+                <p>Acesse os dados públicos mais procurados do Governo do Maranhão.</p>
+            </div>
+        </div>
+        <div class="gridDestaquesPortal">
+            <a class="cardDestaquePortal" href="despesas.html">
+                <div class="iconeDestaquePortal"><span class="iconeLocal" style="--icon: url('imagens/icones/money.svg');"></span></div>
+                <h3>Despesas públicas</h3>
+                <p>Veja como o dinheiro público foi planejado, usado e pago.</p>
+                <span class="acaoCardPortal">
+                    <span>Acessar dados</span>
+                    <span class="setaCardPortal"><span class="iconeLocal" style="--icon: url('imagens/icones/arrow-right.svg');"></span></span>
+                </span>
+            </a>
+            <a class="cardDestaquePortal" href="receitas.html">
+                <div class="iconeDestaquePortal"><span class="iconeLocal" style="--icon: url('imagens/icones/chart-line.svg');"></span></div>
+                <h3>Receitas públicas</h3>
+                <p>Veja o dinheiro que entrou no governo e de onde ele veio.</p>
+                <span class="acaoCardPortal">
+                    <span>Acessar dados</span>
+                    <span class="setaCardPortal"><span class="iconeLocal" style="--icon: url('imagens/icones/arrow-right.svg');"></span></span>
+                </span>
+            </a>
+            <a class="cardDestaquePortal" href="recursos-humanos.html">
+                <div class="iconeDestaquePortal"><span class="iconeLocal" style="--icon: url('imagens/icones/users.svg');"></span></div>
+                <h3>Servidores públicos</h3>
+                <p>Veja salários, diárias, cargos e funções de servidores.</p>
+                <span class="acaoCardPortal">
+                    <span>Acessar dados</span>
+                    <span class="setaCardPortal"><span class="iconeLocal" style="--icon: url('imagens/icones/arrow-right.svg');"></span></span>
+                </span>
+            </a>
+            <a class="cardDestaquePortal" href="contratos-licitacoes.html">
+                <div class="iconeDestaquePortal"><span class="iconeLocal" style="--icon: url('imagens/icones/signature.svg');"></span></div>
+                <h3>Contratos e licitações</h3>
+                <p>Veja compras do governo, contratos e fornecedores.</p>
+                <span class="acaoCardPortal">
+                    <span>Acessar dados</span>
+                    <span class="setaCardPortal"><span class="iconeLocal" style="--icon: url('imagens/icones/arrow-right.svg');"></span></span>
+                </span>
+            </a>
+        </div>
+    </section>
+
+    <div class="secaoConsultasTematicas" id="consultas-tematicas">
+        <h2>Buscar por assunto</h2>
+        <div class="gridConsultasTematicas">
+            <div class="cardConsultaTematica">
+                <div class="temaCardCabecalho">
+                    <div class="iconeTemaPortal"><span class="iconeLocal" style="--icon: url('imagens/icones/money-trend.svg');"></span></div>
+                    <a class="setaTemaPortal" href="despesas.html"><span class="iconeLocal" style="--icon: url('imagens/icones/arrow-right.svg');"></span></a>
+                </div>
+                <h4>Despesas</h4>
+                <p>Veja gastos públicos, repasses, obras e pagamentos.</p>
+                <div class="cardConsultaTematicaLinks">
+                    <a href="despesas.html">Todas as despesas</a>
+                    <a href="404.html">Transferências</a>
+                    <a href="404.html">Obras</a>
+                    <a href="404.html">Ordem de pagamento</a>
+                </div>
+            </div>
+            <div class="cardConsultaTematica">
+                <div class="temaCardCabecalho">
+                    <div class="iconeTemaPortal"><span class="iconeLocal" style="--icon: url('imagens/icones/chart-column.svg');"></span></div>
+                    <a class="setaTemaPortal" href="receitas.html"><span class="iconeLocal" style="--icon: url('imagens/icones/arrow-right.svg');"></span></a>
+                </div>
+                <h4>Receitas</h4>
+                <p>Veja quanto dinheiro entrou e de onde ele veio.</p>
+                <div class="cardConsultaTematicaLinks">
+                    <a href="receitas.html">Receitas</a>
+                    <a href="404.html">Outras entradas</a>
+                    <a href="404.html">Resumo do estado</a>
+                </div>
+            </div>
+            <div class="cardConsultaTematica">
+                <div class="temaCardCabecalho">
+                    <div class="iconeTemaPortal"><span class="iconeLocal" style="--icon: url('imagens/icones/id-card.svg');"></span></div>
+                    <a class="setaTemaPortal" href="recursos-humanos.html"><span class="iconeLocal" style="--icon: url('imagens/icones/arrow-right.svg');"></span></a>
+                </div>
+                <h4>Servidores públicos</h4>
+                <p>Veja salários, diárias e dados de servidores.</p>
+                <div class="cardConsultaTematicaLinks">
+                    <a href="recursos-humanos.html">Pessoal e diárias</a>
+                    <a href="recursos-humanos.html">Salários</a>
+                    <a href="404.html">Cargos</a>
+                </div>
+            </div>
+            <div class="cardConsultaTematica">
+                <div class="temaCardCabecalho">
+                    <div class="iconeTemaPortal"><span class="iconeLocal" style="--icon: url('imagens/icones/contract.svg');"></span></div>
+                    <a class="setaTemaPortal" href="contratos-licitacoes.html"><span class="iconeLocal" style="--icon: url('imagens/icones/arrow-right.svg');"></span></a>
+                </div>
+                <h4>Licitações e contratos</h4>
+                <p>Veja compras, contratos e empresas que vendem ao governo.</p>
+                <div class="cardConsultaTematicaLinks">
+                    <a href="contratos-licitacoes.html">Licitações</a>
+                    <a href="contratos-licitacoes.html">Contratos</a>
+                    <a href="404.html">Buscar fornecedores</a>
+                </div>
+            </div>
+            <div class="cardConsultaTematica">
+                <div class="temaCardCabecalho">
+                    <div class="iconeTemaPortal"><span class="iconeLocal" style="--icon: url('imagens/icones/building.svg');"></span></div>
+                    <a class="setaTemaPortal" href="404.html"><span class="iconeLocal" style="--icon: url('imagens/icones/arrow-right.svg');"></span></a>
+                </div>
+                <h4>Planejamento e gestão</h4>
+                <p>Veja informações sobre o portal, números e resultados.</p>
+                <div class="cardConsultaTematicaLinks">
+                    <a href="404.html">Sobre o portal</a>
+                    <a href="404.html">Números do portal</a>
+                    <a href="404.html">Selo Diamante</a>
+                </div>
+            </div>
+            <div class="cardConsultaTematica">
+                <div class="temaCardCabecalho">
+                    <div class="iconeTemaPortal"><span class="iconeLocal" style="--icon: url('imagens/icones/handshake.svg');"></span></div>
+                    <a class="setaTemaPortal" href="404.html" target="_blank"><span class="iconeLocal" style="--icon: url('imagens/icones/arrow-right.svg');"></span></a>
+                </div>
+                <h4>Participação cidadã</h4>
+                <p>Use canais para pedir informação, enviar manifestações e acessar dados.</p>
+                <div class="cardConsultaTematicaLinks">
+                    <a href="404.html" target="_blank">Pedir informação</a>
+                    <a href="404.html" target="_blank">Ouvidoria</a>
+                    <a href="404.html" target="_blank">Ver dados abertos</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input id="buscados" type="hidden" value="[{&quot;x&quot;:&quot;Tabelas de cargos e fun\u00e7\u00f5es&quot;,&quot;link&quot;:&quot;wp\/tabeladecargosefuncoes&quot;,&quot;value&quot;:615,&quot;category&quot;:&quot;Embarque&quot;},{&quot;x&quot;:&quot;O que mudou?&quot;,&quot;link&quot;:&quot;app\/v2\/nossa_historia#dePara&quot;,&quot;value&quot;:1090,&quot;category&quot;:&quot;Nossa hist\u00f3ria&quot;},{&quot;x&quot;:&quot;Fique por Dentro&quot;,&quot;link&quot;:&quot;app\/v2\/fique_por_dentro&quot;,&quot;value&quot;:1378,&quot;category&quot;:&quot;Fique por dentro&quot;},{&quot;x&quot;:&quot;Remunera\u00e7\u00e3o&quot;,&quot;link&quot;:&quot;app\/v2\/pessoal\/remuneracao&quot;,&quot;value&quot;:1500,&quot;category&quot;:&quot;Explore&quot;},{&quot;x&quot;:&quot;Selo Diamante&quot;,&quot;link&quot;:&quot;app\/v2\/selo_diamante\/diamante&quot;,&quot;value&quot;:3000,&quot;category&quot;:&quot;Embarque&quot;},{&quot;x&quot;:&quot;Dados Abertos&quot;,&quot;link&quot;:&quot;http:\/\/dados.ma.gov.br\/&quot;,&quot;value&quot;:1253,&quot;category&quot;:&quot;JorndaCinza&quot;},{&quot;x&quot;:&quot;Despesas por credor&quot;,&quot;link&quot;:&quot;app\/v2\/despesas?ver_periodo=ano&amp;ano=2026&amp;periodo=30&amp;de=&amp;ate=&amp;vizualizacao=porFornecedorCredor&amp;filtros_pagos_n=selecao_pagos_e_naoPagos&amp;filtro_orcamentario_extra=selecao_orcamentario&amp;ug=all&amp;is_grupo_detalhe_ne=&amp;natureza_despesas=all&amp;funcao=all&amp;programa=all&amp;fornecedor_credor_auto=&amp;fornecedor_credor=&amp;subfuncao=all&amp;acao=all#result_list&quot;,&quot;value&quot;:747,&quot;category&quot;:&quot;Explore&quot;},{&quot;x&quot;:&quot;Cidad\u00e3o informado&quot;,&quot;link&quot;:&quot;app\/v2\/cidadao_informado&quot;,&quot;value&quot;:1027,&quot;category&quot;:&quot;Fique por dentro&quot;},{&quot;x&quot;:&quot;Informa\u00e7\u00f5es Institucionais&quot;,&quot;link&quot;:&quot;app\/v2\/informacoes_institucionais&quot;,&quot;value&quot;:1078,&quot;category&quot;:&quot;JorndaCinza&quot;},{&quot;x&quot;:&quot;Consulta contratos&quot;,&quot;link&quot;:&quot;app\/compras\/consulta-de-contratos\/#lista&quot;,&quot;value&quot;:1350,&quot;category&quot;:&quot;Explore&quot;},{&quot;x&quot;:&quot;Di\u00e1rias&quot;,&quot;link&quot;:&quot;app\/v2\/pessoal&quot;,&quot;value&quot;:2015,&quot;category&quot;:&quot;Explore&quot;},{&quot;x&quot;:&quot;Gastos p\u00fablicos&quot;,&quot;link&quot;:&quot;app\/v2\/fique_por_dentro&quot;,&quot;value&quot;:577,&quot;category&quot;:&quot;Fique por dentro&quot;},{&quot;x&quot;:&quot;Gastos com seguran\u00e7a&quot;,&quot;link&quot;:&quot;app\/v2\/fique_por_dentro_funcao?funcao=06&amp;opt_periodo=ano_mes&amp;ano=2022&quot;,&quot;value&quot;:525,&quot;category&quot;:&quot;Fique por dentro&quot;},{&quot;x&quot;:&quot;Tabelas de di\u00e1rias&quot;,&quot;link&quot;:&quot;wp\/tabeladevaloresdediarias&quot;,&quot;value&quot;:551,&quot;category&quot;:&quot;JorndaCinza&quot;},{&quot;x&quot;:&quot;Despesas por unidade gestora&quot;,&quot;link&quot;:&quot;app\/v2\/fique_por_dentro\/treeMapUG#topo&quot;,&quot;value&quot;:497,&quot;category&quot;:&quot;Fique por dentro&quot;},{&quot;x&quot;:&quot;Acesso a informa\u00e7\u00e3o&quot;,&quot;link&quot;:&quot;http:\/\/www.e-sic.ma.gov.br\/sistema\/site\/index.aspx?ReturnUrl=%2fsistema%2f&quot;,&quot;value&quot;:1083,&quot;category&quot;:&quot;JorndaCinza&quot;},{&quot;x&quot;:&quot;Gest\u00e3o Fiscal&quot;,&quot;link&quot;:&quot;app\/v2\/gestao_fiscal&quot;,&quot;value&quot;:1083,&quot;category&quot;:&quot;JorndaCinza&quot;},{&quot;x&quot;:&quot;Requisitos Legais&quot;,&quot;link&quot;:&quot;app\/v2\/nossa_historia&quot;,&quot;value&quot;:650,&quot;category&quot;:&quot;Nossa hist\u00f3ria&quot;},{&quot;x&quot;:&quot;Como navegar no Portal ?&quot;,&quot;link&quot;:&quot;app\/v2\/embarque&quot;,&quot;value&quot;:1750,&quot;category&quot;:&quot;Embarque&quot;},{&quot;x&quot;:&quot;Emendas Parlamentares&quot;,&quot;link&quot;:&quot;app\/v2\/emendas&quot;,&quot;value&quot;:2150,&quot;category&quot;:&quot;Explore&quot;},{&quot;x&quot;:&quot;Obras&quot;,&quot;link&quot;:&quot;app\/v2\/obras&quot;,&quot;value&quot;:1850,&quot;category&quot;:&quot;Explore&quot;},{&quot;x&quot;:&quot;Restaurante Popular&quot;,&quot;link&quot;:&quot;\/pesquisa-avancada?query=restaurante+popular&amp;tipo=&amp;categoria_busca=anterios&quot;,&quot;value&quot;:950,&quot;category&quot;:&quot;Explore&quot;},{&quot;x&quot;:&quot;EMSERH&quot;,&quot;link&quot;:&quot;\/pesquisa-avancada?query=emserh&amp;tipo=&amp;categoria_busca=atual&quot;,&quot;value&quot;:900,&quot;category&quot;:&quot;Explore&quot;},{&quot;x&quot;:&quot;Licita\u00e7\u00e3o&quot;,&quot;link&quot;:&quot;app\/compras\/consulta-de-compras&quot;,&quot;value&quot;:1350,&quot;category&quot;:&quot;Explore&quot;},{&quot;x&quot;:&quot;Contrata\u00e7\u00f5es&quot;,&quot;link&quot;:&quot;app\/compras\/consulta-de-contratos&quot;,&quot;value&quot;:1350,&quot;category&quot;:&quot;Explore&quot;},{&quot;x&quot;:&quot;naiara araujo&quot;,&quot;link&quot;:&quot;pesquisa-avancada?query=naiara+araujo&amp;tipo=&amp;categoria_busca=atual&quot;,&quot;value&quot;:671,&quot;category&quot;:null}]"/>
+
+
+
+
+
+
+
+    <footer class="rodapeCompacto">
+        <div class="rodapeCompactoConteudo">
+            <div class="rodapeCompactoMarca">
+                <h2>Portal da Transparência</h2>
+                <p>Governo do Estado do Maranhão - Secretaria de Estado da Transparência e Controle.</p>
+            </div>
+
+            <nav class="rodapeCompactoGrupo">
+                <h3>Acesso rápido</h3>
+                <ul>
+                    <li><a href="despesas.html">Receitas e despesas</a></li>
+                    <li><a href="recursos-humanos.html">Servidores públicos</a></li>
+                    <li><a href="404.html">Obras</a></li>
+                    <li><a href="contratos-licitacoes.html">Contratos</a></li>
+                </ul>
+            </nav>
+
+            <nav class="rodapeCompactoGrupo">
+                <h3>Sobre</h3>
+                <ul>
+                    <li><a href="404.html">Nossa história</a></li>
+                    <li><a href="404.html">Notícias</a></li>
+                    <li><a href="404.html">Leis</a></li>
+                    <li><a href="404.html">Órgãos do estado</a></li>
+                </ul>
+            </nav>
+
+            <nav class="rodapeCompactoGrupo">
+                <h3>Cidadão</h3>
+                <ul>
+                    <li><a href="404.html">Pedir informação</a></li>
+                    <li><a href="404.html">Fiscalização interna</a></li>
+                    <li><a href="404.html">Dados abertos</a></li>
+                    <li><a href="despesas.html">Ver dados</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="rodapeCompactoBase">
+            <p class="rodapeCompactoLegal">transparencia@stc.ma.gov.br</p>
+            <a class="rodapeTopo" href="#jornadas">Ir para o topo</a>
+        </div>
+    </footer>
+
+
+</main>
+
+</div>
+</div>
+<script>
+    function to_position(selector) {
+        const target = document.querySelector(selector);
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    function sanitizeSearchValue(value) {
+        return value.replace(/<script.*?>.*?<\/script>/gi, '');
+    }
+
+    function preencherBuscaHome(value) {
+        const homeInput = document.getElementById('query') || document.getElementById('query-home');
+
+        if (!homeInput) {
+            return;
+        }
+
+        homeInput.value = sanitizeSearchValue(value);
+        homeInput.focus();
+    }
+
+    document.querySelectorAll('[data-search-topic]').forEach(function(topicButton) {
+        topicButton.addEventListener('click', function() {
+            preencherBuscaHome(topicButton.getAttribute('data-search-topic') || '');
+        });
+    });
+
+    const buscaHomeForm = document.getElementById('buscaHomeForm');
+    const buscaHomeInput = document.getElementById('query');
+
+    if (buscaHomeForm && buscaHomeInput) {
+        buscaHomeForm.addEventListener('submit', function(event) {
+            const termoBusca = sanitizeSearchValue(buscaHomeInput.value).trim().toLowerCase();
+
+            if (termoBusca === 'despesas') {
+                event.preventDefault();
+                window.location.href = 'despesas.html';
+            }
+        });
+    }
+
+    document.querySelectorAll('#query, #query-home').forEach(function(searchInput) {
+        searchInput.addEventListener('input', function() {
+            searchInput.value = sanitizeSearchValue(searchInput.value);
+        });
+    });
+</script>
+
+<script>
+    function novaJanela(link){
+        window.open (link, "_blank", "toolbar = yes, top = 100, left = 100, width = 600, height = 800");
+    }
+</script>
+</body>
+
+</html>
+

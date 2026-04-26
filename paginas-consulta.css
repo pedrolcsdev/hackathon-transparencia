@@ -1,0 +1,660 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --ma-vermelho: #F21326;
+    --ma-azul: #034C8C;
+    --ma-verde: #03A62C;
+    --ma-amarelo: #F29F05;
+    --ma-laranja: #F27405;
+    --texto: #102a43;
+    --texto-suave: #52616f;
+    --fundo: #f7f8f5;
+    --borda: rgba(3, 76, 140, 0.14);
+    --sombra: 0 16px 38px rgba(16, 42, 67, 0.1);
+    --sombra-forte: 0 24px 58px rgba(16, 42, 67, 0.17);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding-top: 75px;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    color: var(--texto);
+    background: var(--fundo);
+}
+
+a {
+    color: inherit;
+}
+
+.cabecalhoPortalNovo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 75px;
+    background: #fff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.cabecalhoPortalNovoConteudo {
+    width: min(1630px, 86%);
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.cabecalhoMenuBotao {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    cursor: pointer;
+    flex: 0 0 auto;
+}
+
+.cabecalhoMenuBotao span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: #111;
+}
+
+.cabecalhoLogo {
+    margin-left: clamp(80px, 12vw, 218px);
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+.cabecalhoLogo img {
+    display: block;
+    width: 158px;
+    height: auto;
+}
+
+.cabecalhoNavegacao {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: clamp(28px, 3.2vw, 58px);
+    white-space: nowrap;
+}
+
+.cabecalhoNavegacao a {
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 700;
+    transition: color 0.18s ease;
+}
+
+.cabecalhoNavegacao a:hover {
+    color: var(--ma-azul);
+}
+
+.topoConsulta {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.94);
+    border-bottom: 1px solid var(--borda);
+    backdrop-filter: blur(10px);
+}
+
+.topoConsultaInner,
+.paginaConsulta {
+    width: min(1120px, 90%);
+    margin: 0 auto;
+}
+
+.topoConsultaInner {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.marcaConsulta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    font-weight: 800;
+    color: var(--ma-azul);
+}
+
+.marcaConsultaIcone {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: var(--pagina-cor, var(--ma-azul));
+    box-shadow: 0 12px 22px color-mix(in srgb, var(--pagina-cor, var(--ma-azul)) 24%, transparent);
+}
+
+.navConsulta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.navConsulta a,
+.botaoConsulta {
+    min-height: 44px;
+    border-radius: 12px;
+    padding: 10px 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    border: 1px solid transparent;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+
+.navConsulta a {
+    color: var(--ma-azul);
+    background: #fff;
+    border-color: var(--borda);
+}
+
+.navConsulta a:hover,
+.navConsulta a:focus-visible,
+.botaoConsulta:hover,
+.botaoConsulta:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: var(--sombra);
+    outline: none;
+}
+
+.paginaConsulta {
+    padding: 44px 0 72px;
+}
+
+.heroConsulta {
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    padding: clamp(28px, 5vw, 56px);
+    color: #fff;
+    background:
+        linear-gradient(130deg, color-mix(in srgb, var(--pagina-cor) 88%, #102a43) 0%, rgba(3, 76, 140, 0.88) 54%, rgba(255, 255, 255, 0.12) 100%),
+        url("https://www.penaestrada.blog.br/wp-content/uploads/2015/08/sao-luis-13-1.jpg") center/cover no-repeat;
+    box-shadow: var(--sombra-forte);
+}
+
+.heroConsulta::after {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    right: -86px;
+    top: -86px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.18);
+}
+
+.voltarLink {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 28px;
+    font-weight: 700;
+}
+
+.heroConsultaTag {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.heroConsulta h1 {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    margin: 18px 0 16px;
+    color: #fff;
+    font-size: clamp(34px, 5vw, 58px);
+    line-height: 1.05;
+}
+
+.heroConsulta p {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.resumoGrid,
+.atalhosGrid,
+.dadosGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+
+.resumoGrid {
+    margin: 28px 0;
+}
+
+.resumoCard,
+.painelConsulta,
+.atalhoConsulta {
+    background: #fff;
+    border: 1px solid var(--borda);
+    border-radius: 20px;
+    box-shadow: var(--sombra);
+}
+
+.resumoCard {
+    padding: 22px;
+    position: relative;
+    overflow: visible;
+}
+
+.resumoCard::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto;
+    height: 5px;
+    background: var(--pagina-cor);
+}
+
+.resumoCard span {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    color: var(--texto-suave);
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.resumoCard strong {
+    display: block;
+    margin-top: 10px;
+    font-size: 30px;
+    color: var(--texto);
+}
+
+.painelConsulta {
+    padding: clamp(22px, 4vw, 34px);
+    margin-top: 26px;
+}
+
+.secaoTitulo {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.secaoTitulo h2 {
+    margin: 0;
+    color: var(--ma-azul);
+    font-size: clamp(24px, 3vw, 34px);
+}
+
+.secaoTitulo p {
+    max-width: 680px;
+    margin: 8px 0 0;
+    color: var(--texto-suave);
+    line-height: 1.6;
+}
+
+.filtrosConsulta {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+
+.campoConsulta {
+    display: grid;
+    gap: 8px;
+}
+
+.campoConsulta label {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    width: max-content;
+    max-width: 100%;
+    font-weight: 800;
+    color: var(--texto);
+}
+
+.ajudaTopico {
+    position: relative;
+    z-index: 4;
+    width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    color: #fff;
+    background: var(--ma-azul);
+    font-size: 10px;
+    line-height: 1;
+    cursor: help;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+.ajudaTopico::after {
+    content: attr(data-ajuda);
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 10px);
+    width: min(240px, 72vw);
+    padding: 10px 12px;
+    border-radius: 8px;
+    color: #fff;
+    background: #123754;
+    box-shadow: 0 12px 26px rgba(16, 42, 67, 0.24);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.45;
+    letter-spacing: 0;
+    text-transform: none;
+    text-align: left;
+    white-space: normal;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, 6px);
+    transition: opacity 0.16s ease, transform 0.16s ease;
+}
+
+.ajudaTopico::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 4px);
+    border: 6px solid transparent;
+    border-top-color: #123754;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-50%);
+    transition: opacity 0.16s ease;
+}
+
+.ajudaTopico:hover::after,
+.ajudaTopico:hover::before,
+.ajudaTopico:focus::after,
+.ajudaTopico:focus::before,
+.ajudaTopico.is-active::after,
+.ajudaTopico.is-active::before {
+    opacity: 1;
+}
+
+.ajudaTopico:hover::after,
+.ajudaTopico:focus::after,
+.ajudaTopico.is-active::after {
+    transform: translate(-50%, 0);
+}
+
+.ajudaTopico:focus {
+    outline: 3px solid rgba(242, 159, 5, 0.45);
+    outline-offset: 2px;
+}
+
+.campoConsulta input,
+.campoConsulta select {
+    width: 100%;
+    min-height: 48px;
+    border-radius: 12px;
+    border: 1px solid var(--borda);
+    padding: 10px 12px;
+    font: inherit;
+    color: var(--texto);
+    background: #fff;
+}
+
+.campoConsulta input:focus,
+.campoConsulta select:focus {
+    outline: 3px solid rgba(242, 159, 5, 0.55);
+    border-color: var(--pagina-cor);
+}
+
+.botaoConsulta {
+    border: 0;
+    cursor: pointer;
+    color: #fff;
+    background: var(--pagina-cor);
+    align-self: end;
+}
+
+.atalhosGrid {
+    margin-top: 12px;
+}
+
+.atalhoConsulta {
+    position: relative;
+    overflow: hidden;
+    min-height: 156px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.atalhoConsulta::after {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    right: -42px;
+    top: -42px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--pagina-cor) 12%, white);
+}
+
+.atalhoConsulta:hover,
+.atalhoConsulta:focus-visible {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: var(--sombra-forte);
+    border-color: color-mix(in srgb, var(--pagina-cor) 42%, white);
+    outline: none;
+}
+
+.atalhoIcone {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background: var(--pagina-cor);
+    position: relative;
+    z-index: 1;
+}
+
+.atalhoConsulta h3 {
+    position: relative;
+    z-index: 1;
+    margin: 18px 0 8px;
+    color: var(--texto);
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.atalhoConsulta p {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    color: var(--texto-suave);
+    line-height: 1.6;
+}
+
+.linhaTabela {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 16px 0;
+    border-top: 1px solid rgba(3, 76, 140, 0.12);
+}
+
+.linhaTabela:first-child {
+    border-top: 0;
+}
+
+.linhaTabela strong {
+    color: var(--texto);
+}
+
+.linhaTabela span {
+    color: var(--texto-suave);
+}
+
+.statusConsulta {
+    width: max-content;
+    border-radius: 999px;
+    padding: 7px 12px;
+    color: var(--pagina-cor);
+    background: color-mix(in srgb, var(--pagina-cor) 10%, white);
+    font-weight: 800;
+}
+
+@media (min-width: 720px) {
+    .resumoGrid,
+    .atalhosGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .filtrosConsulta {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .linhaTabela {
+        grid-template-columns: 1.4fr 1fr 0.8fr;
+        align-items: center;
+    }
+}
+
+@media (min-width: 1040px) {
+    .resumoGrid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .atalhosGrid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .filtrosConsulta {
+        grid-template-columns: 1.2fr 0.8fr 0.8fr auto;
+    }
+}
+
+@media (max-width: 1024px) {
+    .cabecalhoPortalNovoConteudo {
+        width: 90%;
+    }
+
+    .cabecalhoLogo {
+        margin-left: clamp(32px, 8vw, 86px);
+    }
+
+    .cabecalhoNavegacao {
+        gap: 24px;
+    }
+
+    .cabecalhoNavegacao a {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 72px;
+    }
+
+    .cabecalhoPortalNovo {
+        height: 72px;
+    }
+
+    .cabecalhoPortalNovoConteudo {
+        width: 90%;
+    }
+
+    .cabecalhoLogo {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .cabecalhoLogo img {
+        width: 146px;
+    }
+
+    .cabecalhoNavegacao {
+        display: none;
+    }
+
+    .topoConsultaInner {
+        min-height: auto;
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .navConsulta {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .navConsulta a {
+        width: 100%;
+    }
+
+    .heroConsulta {
+        border-radius: 20px;
+    }
+
+    .secaoTitulo {
+        display: block;
+    }
+}

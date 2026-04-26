@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Despesas públicas - Portal da Transparência</title>
+    <link rel="shortcut icon" href="https://transparencia.ma.gov.br/theme-wp/assets/images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="paginas-consulta.css">
+</head>
+<body style="--pagina-cor: var(--ma-vermelho);">
+    <header class="cabecalhoPortalNovo">
+        <div class="cabecalhoPortalNovoConteudo">
+            <button class="cabecalhoMenuBotao" type="button" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a class="cabecalhoLogo" href="index.html">
+                <img src="images/logoportal.png" alt="Portal da Transparência do Governo do Maranhão">
+            </a>
+            <nav class="cabecalhoNavegacao" aria-label="Navegação principal">
+                <a href="index.html#jornadas">Comece aqui</a>
+                <a href="index.html#pesquisar">Buscar no portal</a>
+                <a href="index.html#consultas-tematicas">Buscar por assunto</a>
+                <a href="404.html">Dados abertos</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="paginaConsulta">
+        <section class="heroConsulta">
+            <a class="voltarLink" href="index.html"><i class="fa-solid fa-arrow-left"></i> Voltar para o início</a>
+            <span class="heroConsultaTag"><i class="fa-solid fa-wallet"></i> Dados públicos</span>
+            <h1>Despesas públicas</h1>
+            <p>Veja como o dinheiro público foi planejado, usado e pago.</p>
+        </section>
+
+        <section class="resumoGrid" aria-label="Resumo das despesas">
+            <article class="resumoCard"><span>Valor reservado <span class="ajudaTopico" tabindex="0" aria-label="O que é valor reservado?" data-ajuda="Dinheiro separado pelo governo para pagar uma despesa."><i class="fa-solid fa-question"></i></span></span><strong>R$ 18,4 bi</strong></article>
+            <article class="resumoCard"><span>Valor conferido <span class="ajudaTopico" tabindex="0" aria-label="O que é valor conferido?" data-ajuda="Despesa já conferida porque o serviço ou produto foi entregue."><i class="fa-solid fa-question"></i></span></span><strong>R$ 13,7 bi</strong></article>
+            <article class="resumoCard"><span>Valor pago <span class="ajudaTopico" tabindex="0" aria-label="O que é valor pago?" data-ajuda="Dinheiro que já saiu do caixa público para pagar alguém."><i class="fa-solid fa-question"></i></span></span><strong>R$ 12,9 bi</strong></article>
+            <article class="resumoCard"><span>Obras em andamento <span class="ajudaTopico" tabindex="0" aria-label="O que são obras em andamento?" data-ajuda="Obras que ainda não foram finalizadas."><i class="fa-solid fa-question"></i></span></span><strong>1.302</strong></article>
+        </section>
+
+        <section class="painelConsulta">
+            <div class="secaoTitulo">
+                <div>
+                    <h2>Buscar despesas</h2>
+                    <p>Use os filtros para encontrar gastos por órgão, período ou situação.</p>
+                </div>
+            </div>
+            <form class="filtrosConsulta">
+                <div class="campoConsulta">
+                    <label for="busca-despesa">Palavra-chave <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre palavra-chave" data-ajuda="Digite um assunto, órgão, empresa ou serviço."><i class="fa-solid fa-question"></i></span></label>
+                    <input id="busca-despesa" type="search" placeholder="Ex.: saúde, educação, empresa">
+                </div>
+                <div class="campoConsulta">
+                    <label for="ano-despesa">Ano <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre ano" data-ajuda="Escolha o ano da despesa."><i class="fa-solid fa-question"></i></span></label>
+                    <select id="ano-despesa"><option>2026</option><option>2025</option><option>2024</option></select>
+                </div>
+                <div class="campoConsulta">
+                    <label for="situacao-despesa">Situação <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre situação" data-ajuda="Mostra se a despesa foi reservada, conferida ou paga."><i class="fa-solid fa-question"></i></span></label>
+                    <select id="situacao-despesa"><option>Todas</option><option>Pago</option><option>Conferido</option><option>Reservado</option></select>
+                </div>
+                <button class="botaoConsulta" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+            </form>
+            <div class="dadosGrid">
+                <div class="linhaTabela"><strong>Secretaria de Estado da Saúde</strong><span>Pagamentos de serviços essenciais</span><span class="statusConsulta">Pago</span></div>
+                <div class="linhaTabela"><strong>Secretaria de Educação</strong><span>Manutenção de escolas</span><span class="statusConsulta">Conferido</span></div>
+                <div class="linhaTabela"><strong>Infraestrutura</strong><span>Obras e conservação de vias</span><span class="statusConsulta">Reservado</span></div>
+            </div>
+        </section>
+
+        <section class="painelConsulta">
+            <div class="secaoTitulo">
+                <div>
+                    <h2>Mais opções</h2>
+                    <p>Acesse outros caminhos para ver detalhes das despesas.</p>
+                </div>
+            </div>
+            <div class="atalhosGrid">
+                <a class="atalhoConsulta" href="#busca-despesa"><span class="atalhoIcone"><i class="fa-solid fa-file-invoice-dollar"></i></span><h3>Pagamentos <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre pagamentos" data-ajuda="Valores que o governo já pagou."><i class="fa-solid fa-question"></i></span></h3><p>Veja pagamentos por órgão, fonte do dinheiro e quem recebeu.</p></a>
+                <a class="atalhoConsulta" href="#busca-despesa"><span class="atalhoIcone"><i class="fa-solid fa-road"></i></span><h3>Obras <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre obras" data-ajuda="Gastos com construções, reformas e manutenção de espaços públicos."><i class="fa-solid fa-question"></i></span></h3><p>Acompanhe valores e andamento de obras públicas.</p></a>
+                <a class="atalhoConsulta" href="#busca-despesa"><span class="atalhoIcone"><i class="fa-solid fa-arrow-right-arrow-left"></i></span><h3>Transferências <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre transferências" data-ajuda="Dinheiro enviado para municípios, entidades ou outros órgãos."><i class="fa-solid fa-question"></i></span></h3><p>Veja repasses e acordos feitos pelo governo.</p></a>
+            </div>
+        </section>
+    </main>
+    <script src="paginas-consulta.js"></script>
+</body>
+</html>

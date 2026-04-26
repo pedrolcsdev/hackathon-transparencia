@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Receitas públicas - Portal da Transparência</title>
+    <link rel="shortcut icon" href="https://transparencia.ma.gov.br/theme-wp/assets/images/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="paginas-consulta.css">
+</head>
+<body style="--pagina-cor: var(--ma-azul);">
+    <header class="cabecalhoPortalNovo">
+        <div class="cabecalhoPortalNovoConteudo">
+            <button class="cabecalhoMenuBotao" type="button" aria-label="Abrir menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <a class="cabecalhoLogo" href="index.html">
+                <img src="images/logoportal.png" alt="Portal da Transparência do Governo do Maranhão">
+            </a>
+            <nav class="cabecalhoNavegacao" aria-label="Navegação principal">
+                <a href="index.html#jornadas">Comece aqui</a>
+                <a href="index.html#pesquisar">Buscar no portal</a>
+                <a href="index.html#consultas-tematicas">Buscar por assunto</a>
+                <a href="404.html">Dados abertos</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="paginaConsulta">
+        <section class="heroConsulta">
+            <a class="voltarLink" href="index.html"><i class="fa-solid fa-arrow-left"></i> Voltar para o início</a>
+            <span class="heroConsultaTag"><i class="fa-solid fa-chart-line"></i> Dados públicos</span>
+            <h1>Receitas públicas</h1>
+            <p>Veja quanto dinheiro entrou no governo e de onde ele veio.</p>
+        </section>
+
+        <section class="resumoGrid" aria-label="Resumo de receitas">
+            <article class="resumoCard"><span>Total recebido <span class="ajudaTopico" tabindex="0" aria-label="O que é total recebido?" data-ajuda="Todo o dinheiro que entrou para o governo."><i class="fa-solid fa-question"></i></span></span><strong>R$ 21,6 bi</strong></article>
+            <article class="resumoCard"><span>Receita do dia a dia <span class="ajudaTopico" tabindex="0" aria-label="O que é receita do dia a dia?" data-ajuda="Dinheiro usado para manter os serviços públicos funcionando."><i class="fa-solid fa-question"></i></span></span><strong>R$ 19,8 bi</strong></article>
+            <article class="resumoCard"><span>Repasses recebidos <span class="ajudaTopico" tabindex="0" aria-label="O que são repasses recebidos?" data-ajuda="Dinheiro recebido de outro governo ou instituição."><i class="fa-solid fa-question"></i></span></span><strong>R$ 7,3 bi</strong></article>
+            <article class="resumoCard"><span>Fontes com movimento <span class="ajudaTopico" tabindex="0" aria-label="O que são fontes com movimento?" data-ajuda="Origens de dinheiro que tiveram entrada no período."><i class="fa-solid fa-question"></i></span></span><strong>42</strong></article>
+        </section>
+
+        <section class="painelConsulta">
+            <div class="secaoTitulo"><div><h2>Buscar receitas</h2><p>Use os filtros para entender de onde vem o dinheiro público.</p></div></div>
+            <form class="filtrosConsulta">
+                <div class="campoConsulta"><label for="busca-receita">Palavra-chave <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre palavra-chave" data-ajuda="Digite o nome de uma receita, imposto, fundo ou assunto."><i class="fa-solid fa-question"></i></span></label><input id="busca-receita" type="search" placeholder="Ex.: ICMS, repasse, fundo"></div>
+                <div class="campoConsulta"><label for="ano-receita">Ano <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre ano" data-ajuda="Escolha o ano em que o dinheiro entrou."><i class="fa-solid fa-question"></i></span></label><select id="ano-receita"><option>2026</option><option>2025</option><option>2024</option></select></div>
+                <div class="campoConsulta"><label for="categoria-receita">Tipo de receita <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre tipo de receita" data-ajuda="Agrupa receitas parecidas, como entradas para serviços ou investimentos."><i class="fa-solid fa-question"></i></span></label><select id="categoria-receita"><option>Todas</option><option>Do dia a dia</option><option>Investimentos</option><option>Entre órgãos</option></select></div>
+                <button class="botaoConsulta" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Buscar</button>
+            </form>
+            <div class="dadosGrid">
+                <div class="linhaTabela"><strong>ICMS</strong><span>Imposto sobre venda de produtos e serviços</span><span class="statusConsulta">Do dia a dia</span></div>
+                <div class="linhaTabela"><strong>Fundo de Participação</strong><span>Repasses previstos em lei</span><span class="statusConsulta">Repasse</span></div>
+                <div class="linhaTabela"><strong>Convênios</strong><span>Dinheiro ligado a programas específicos</span><span class="statusConsulta">Investimento</span></div>
+            </div>
+        </section>
+
+        <section class="painelConsulta">
+            <div class="secaoTitulo"><div><h2>Mais opções</h2><p>Acesse outros caminhos para ver detalhes das receitas.</p></div></div>
+            <div class="atalhosGrid">
+                <a class="atalhoConsulta" href="#busca-receita"><span class="atalhoIcone"><i class="fa-solid fa-chart-pie"></i></span><h3>Por origem <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre origem" data-ajuda="Mostra de onde veio o dinheiro, como impostos ou repasses."><i class="fa-solid fa-question"></i></span></h3><p>Veja a origem do dinheiro recebido.</p></a>
+                <a class="atalhoConsulta" href="#busca-receita"><span class="atalhoIcone"><i class="fa-solid fa-calendar-days"></i></span><h3>Por período <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre período" data-ajuda="Ajuda a comparar entradas de dinheiro por mês ou por ano."><i class="fa-solid fa-question"></i></span></h3><p>Compare entradas de dinheiro por mês ou ano.</p></a>
+                <a class="atalhoConsulta" href="#busca-receita"><span class="atalhoIcone"><i class="fa-solid fa-database"></i></span><h3>Dados reunidos <span class="ajudaTopico" tabindex="0" aria-label="Ajuda sobre dados reunidos" data-ajuda="Lista organizada com os dados para consulta."><i class="fa-solid fa-question"></i></span></h3><p>Veja uma lista organizada com as receitas.</p></a>
+            </div>
+        </section>
+    </main>
+    <script src="paginas-consulta.js"></script>
+</body>
+</html>
